@@ -83,9 +83,9 @@ Identify the primary place people will engage with the agent. The interaction su
 
 Decide how much engineering control you need versus how fast you must ship.
 
-- **Low-code / managed** – Copilot Studio, AI Builder, declarative agents. Makers and developers can deliver in days when declarative orchestration is enough.
+- **Low-code / managed** – Copilot Studio Full, AI Builder, Copilot Studio Lite. Makers and developers can deliver in days when declarative orchestration is enough.
 - **Pro-code / customizable** – M365 Agents SDK, Azure AI Foundry, Microsoft Agent Framework, AG-UI protocol (Preview), Teams AI Library. Full control over orchestration, hosting, and integrations while surfacing agents in any UI channel.[^agui-overview]
-- **Hybrid** – Start in Copilot Studio for speed, bring in Azure AI Foundry or Agent Framework when custom logic or private hosting is required.
+- **Hybrid** – Start in Copilot Studio for speed, then bring in Azure AI Foundry or Agent Framework when custom logic or private hosting is required.
 
 🧭 For side-by-side capabilities, see the development approach matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) and [Technologies]({{ '/docs/technologies' | relative_url }}).
 
