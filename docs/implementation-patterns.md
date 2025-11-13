@@ -259,7 +259,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 **Ground yourself first**
 
-1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework §Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here—capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }}) instead of forcing a pattern.
+1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here—capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }}) instead of forcing a pattern.
 
 2. **Anchor the user experience.**  
    - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].  
