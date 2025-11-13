@@ -8,7 +8,7 @@ description: "Understanding Microsoft's AI portfolio through five capability lay
 # Five-Layer Capability Model
 {: .no_toc }
 
-Microsoft's AI portfolio is organized into **five capability layers** that map directly to Microsoft's official "adopt → extend → build" Copilot guidance and Copilot stack tiers, as outlined in [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview) and the [Explore the Copilot stack](https://learn.microsoft.com/en-us/training/modules/explore-copilot-stack/) module. This model explains how to start with turnkey copilots, add governed extensibility, graduate into custom agent platforms, and reinforce everything with shared AI services and domain copilots so you can always choose the simplest Microsoft capability that satisfies each scenario.
+Microsoft's five-layer capability model distills the official "adopt → extend → build" journey from [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview), expands it with the hands-on tiers from the [Explore the Copilot stack](https://learn.microsoft.com/en-us/training/modules/explore-copilot-stack/) module and the Copilot stack view in [Creating Generative AI Experiences with the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story#scenarios-and-approaches), and grounds it in Azure's [Application design for AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/application-design#application-layer-architecture). The result is a single progression—from turnkey Microsoft 365 copilots, to governed extensibility, to Copilot Studio and Azure AI Foundry platforms, to shared Azure AI services, to specialized domain copilots—that helps you decide whether to infuse AI into an existing experience or build agents and orchestration when the scenario demands more control.
 
 
 ## Table of contents
@@ -165,3 +165,5 @@ Manage all agents (Studio, SDK, declarative) from Microsoft 365 admin center (GA
 **Model Overview:**
 - [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview) (Updated: 2025)
 - [Explore the Copilot stack - Training Module](https://learn.microsoft.com/en-us/training/modules/explore-copilot-stack/) (Updated: 2025)
+- [Creating Generative AI Experiences with the Microsoft Cloud: A Guide for ISVs](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story#scenarios-and-approaches) (Updated: 2025)
+- [Application design for AI workloads on Azure](https://learn.microsoft.com/en-us/azure/well-architected/ai/application-design#application-layer-architecture) (Updated: 2025)
