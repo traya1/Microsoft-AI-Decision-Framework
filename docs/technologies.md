@@ -170,54 +170,58 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 ## Azure AI Agent Service
 {: .tech-heading }
 **Description:** Managed PaaS for agent orchestration, skills management, and runtime infrastructure within Azure AI Foundry. Supports connected agents (multi-agent systems), 15+ built-in tools, full RBAC + VNet + BYO storage. GA with continuous feature additions.  
-**Official Docs:** [Azure AI Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/)  
-**Status:** GA (May 2025)
+**Description:** Microsoft’s next-generation, type-safe orchestration SDK for composing multi-agent workflows with executors, edges, and reusable patterns. Successor to Semantic Kernel and AutoGen for building agents in .NET and Python.  
+**Status:** Public Preview (.NET, Python)  
+**Official Docs:** [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) | [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) | [Workflows – Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints)
 
 **Key Features:**
 
-- **Managed runtime:** Microsoft hosts compute, memory, and thread state with built-in tracing and Azure Monitor metrics. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **Connected agents (GA):** Orchestrate multi-agent systems that share context without external orchestrators; supports Fabric data agents. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **BYO storage:** Bring Azure Cosmos DB for thread storage plus Azure AI Search and Azure Blob Storage for knowledge with private endpoints. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **Trace agents SDK:** Debug runs with thread-level insights, including inputs, tool calls, and outputs. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **Event triggers:** Invoke agents from Azure Logic Apps or other workflows to respond to business events. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **VS Code integration:** AI Foundry VS Code extension deploys and configures agent tools, including MCP integrations. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **MCP tool & Deep Research:** Connect to remote MCP servers and run multi-step o3-deep-research investigations grounded by Bing Search. (What's new in Azure AI Agent Service — Updated: 2025-06-15)
+- **Unified agents + workflows:** Ship LLM-powered agents, MCP integrations, and workflow graphs from a single SDK that merges Semantic Kernel and AutoGen strengths. ([Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) — Retrieved: 2025-11-12)
+- **Orchestration patterns:** Sequential, Concurrent, Handoff, and Magentic orchestrations accelerate multi-agent collaboration without bespoke control logic. ([Workflows orchestrations overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview) — Retrieved: 2025-11-12)
+- **Type-safe execution + checkpointing:** Executors, edges, and checkpoint services provide deterministic routing, resumability, and human-approval loops. ([Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview#overview) — Retrieved: 2025-11-12; [Workflows – Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints) — Updated: 2025-10-01)
+- **Observability instrumentation:** OpenTelemetry hooks capture workflow spans (`workflow.run`, `message.send`, etc.) via `ENABLE_OTEL` or `setup_observability()`. ([Workflows – Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/observability) — Retrieved: 2025-11-12)
+- **Workflows as agents:** Any workflow can be wrapped and exposed through the agent interface, enabling reuse across APIs or UI hosts. ([Workflows – Using workflows as agents](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents) — Retrieved: 2025-11-12)
 
-**Built-in Tools (Knowledge):**
+**Workflow vs Agent Distinction:**
 
-- **Azure AI Search:** Ground agents with indexed data, chat with your data
-- **File Search:** RAG with proprietary documents (Azure Blob Storage, local files). Uses vector stores (up to 10,000 files), automatic chunking/embedding (text-embedding-3-large), hybrid search (keyword + semantic), reranking
-- **Grounding with Bing Search:** Access real-time web information
-- **Grounding with Bing Custom Search (GA June 2025):** Enhanced responses with selected web domains
-- **Microsoft Fabric (GA March 2025):** Integrate with Fabric Data Agents for data analysis capabilities
-- **SharePoint (Preview):** Chat with private SharePoint documents, OBO authentication for security-trimmed access, leverages M365 Copilot API built-in indexing
-- **Licensed Data:** Proprietary data via licensed API keys (TripAdvisor, Morningstar, LexisNexis, LEGALFLY, etc.)
+- **Agent:** LLM-driven actor deciding which tool to invoke based on context. ([Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview#how-is-a-workflows-different-from-an-ai-agent) — Retrieved: 2025-11-12)
+- **Workflow:** Predefined control flow that can embed agents, external APIs, and human steps for predictable orchestration. ([Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview#how-is-a-workflows-different-from-an-ai-agent) — Retrieved: 2025-11-12)
 
-**Built-in Tools (Action):**
+**Recent Guidance:**
 
-- **Function Calling:** Custom stateless functions
-- **Azure Functions:** Intelligent, event-driven serverless code execution
-- **Azure Logic Apps:** 1,400+ connector-based workflows
-- **Code Interpreter:** Write and run Python code in sandboxed environment (data handling, visuals)
-- **OpenAPI 3.0 Specified Tool:** Connect to external APIs via OpenAPI spec
-- **Model Context Protocol (GA June 2025):** Access tools hosted on remote MCP endpoints for interoperable tool sharing. (What's new in Azure AI Agent Service — Updated: 2025-06-15)
-- **Deep Research (GA June 2025):** Multi-step web-based research with o3-deep-research model + Bing Search
-- **Browser Automation (Preview):** Real-world browser tasks via natural language with Playwright Workspaces
-- **Computer Use (Preview):** UI interaction via specialized computer-use-preview model, interprets raw pixel screenshots, virtual keyboard/mouse control
-- **Image Generation (Preview):** Generate and edit images as part of conversations and multi-step workflows
+- **Oct 1, 2025:** Checkpoint documentation refreshed with superstep lifecycle patterns and storage guidance. ([Workflows – Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints) — Updated: 2025-10-01)
+- **Latest:** Observability documentation details OTEL setup and span taxonomy for workflow tracing. ([Workflows – Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/observability) — Retrieved: 2025-11-12)
 
-**Agent Setup Options:**
+**When to use:** Coordinate specialized agents, enforce deterministic orchestration, resume long-running conversations, or pair Microsoft 365 Agents SDK apps with a first-party orchestrator.
 
-- **Basic Setup:** Microsoft-managed search and storage (files stored in MS-managed storage, vector stores in MS-managed search)
-- **Standard Setup:** BYO Azure AI Search + Blob Storage + Cosmos DB (files in your Blob, vector stores in your AI Search, thread storage in your Cosmos DB), private networking, no public egress by default
+**Sources:**
 
-**Recent Updates (2025):**
+- [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Retrieved: 2025-11-12)
+- [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) (Retrieved: 2025-11-12)
+- [Workflows – Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints) (Updated: 2025-10-01)
+- [Workflows – Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/observability) (Retrieved: 2025-11-12)
+- [Workflows – Using workflows as agents](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents) (Retrieved: 2025-11-12)
 
-- **General Availability:** Service went GA in May 2025
-- **Connected agents:** Multi-agent orchestration without external orchestrators (May 2025)
-- **MCP tool:** Connect to remote Model Context Protocol servers (June 2025)
-- **Deep Research:** o3-deep-research + Bing Search for multi-step analysis (June 2025)
-- **Bing Custom Search:** Specify websites for grounding (June 2025)
+---
+
+### Terminology Clarification: SDK vs Service
+
+The phrase "agent framework" can refer to two distinct offerings:
+
+**Microsoft Agent Framework (Orchestration SDK)**  
+Open-source library for workflow-based orchestration. Public Preview. Use for executor/edge workflows, checkpointing, and Microsoft 365 Agents SDK integration.
+
+**Azure AI Agent Service (Managed PaaS)**  
+Managed service for agent orchestration within Azure AI Foundry. GA. Use for managed infrastructure, Azure-hosted agents, and scalable runtime.
+
+**Quick Decision:**
+
+- M365 productivity agents → M365 Agents SDK + Agent Framework
+- Azure-hosted agents → Azure AI Foundry + AI Agent Service  
+- Bot Framework migration → M365 Agents SDK
+- Workflow orchestration + checkpointing → Agent Framework
+
+---
 - **Azure Monitor integration:** Metrics for file indexing, run tracking (April 2025)
 - **BYO Cosmos DB:** Thread storage in customer-managed Cosmos DB for NoSQL (April 2025)
 - **VS Code extension:** Develop, test, and publish agents with tool configuration inside Visual Studio Code. (Azure AI Agent Service GA — Updated: 2025-05-20)
