@@ -246,7 +246,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 | **Pattern** | **Time to Market** | **Complexity** | **Control Level** | **Best User Experience** |
 |-------------|-------------------|----------------|-------------------|--------------------------|
-| **(Studio → Azure)** | Fast (days to weeks) | Start Simple → Scale Complex | Low → High | M365 Copilot, Teams |
+| **Pattern 1 (Studio → Azure)** | Fast (days to weeks) | Start Simple → Scale Complex | Low → High | M365 Copilot, Teams |
 | **Pattern 2 (Pro-Code First)** | Moderate (weeks to months) | High | Full | M365 Copilot, Custom Apps |
 | **Pattern 3 (M365 Knowledge)** | Fast (days) | Low | Medium | M365 Copilot (native) |
 | **Pattern 4 (Multi-Channel SDK)** | Moderate (weeks) | High | Full | 10+ channels |
@@ -257,31 +257,37 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 ### Pattern Decision Tree
 {: .no_toc }
 
-**Start Here:**
+**Ground yourself first**
 
-1. **Do you need multi-agent orchestration?**
-   - Need connected agents or handoffs with managed tooling (Copilot Studio connected agents, Logic Apps AI Agent Workflows, Azure AI Agent Service connected agents) → Stay with **Pattern 1** or **Pattern 2** depending on build style; pair with managed orchestration features.
-   - Require programmable orchestration patterns (sequential, concurrent, long-running state graphs) beyond connected/handoff features → **Pattern 5** (Agent Framework)
-   - Not yet → Continue to question 2
+1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework §Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here—capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }}) instead of forcing a pattern.
 
-2. **Is M365 Copilot the primary user experience?**
-   - Yes, knowledge retrieval only → **Pattern 3** (M365 Knowledge)[^pattern3-knowledge]
-   - Yes, need declarative actions or low-code workflows → **Pattern 1** (Studio → Azure)[^pattern1-actions]
-   - Yes, need custom orchestration or multi-channel pro-code → **Pattern 2** or **Pattern 4** (choose based on control level)[^pattern2-4-procode]
-   - No → Continue to question 3
+2. **Anchor the user experience.**  
+   - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].  
+   - **Multi-channel or custom apps** (web, mobile, SMS, API) → continue to step 3 with **Patterns 2 or 4** in play.
 
-3. **Do you need custom orchestration control?**
-   - Yes → **Pattern 4** (Multi-Channel SDK) or **Pattern 2** (Pro-Code First)
-   - No → **Pattern 1** (Studio → Azure)
+3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}). Decide who will build and run the backlog, not which UI they click.  
+   - **Maker-led or mixed squads** who will operate inside Copilot Studio, yet can still call custom APIs or child agents, start with **Pattern 1** and expand to Azure as needed.  
+   - **Engineer-led product teams** with CI/CD, observability, and landing-zone governance treat **Pattern 2** (Azure-first) or **Pattern 4** (Agents SDK distribution) as the default.  
+   - **Hybrid hand-offs** (makers capturing intent, engineers owning orchestration) combine **Pattern 1** for the front door with **Pattern 2**/**Pattern 4** services behind it.[^skills-matrix]
 
-4. **Do you have developers available?**
-   - Yes → **Pattern 2** or **Pattern 4**
-   - No → **Pattern 1** (low-code path)
+4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).  
+   - **Stay inside Microsoft 365 tenant controls** → **Pattern 1** or **Pattern 3**.  
+   - **Require VNet isolation, private endpoints, or custom compliance** → **Pattern 2** or **Pattern 4**.  
+   - **Hybrid front door** (Copilot Studio + Azure runtime) → combine **Pattern 1** and **Pattern 2** as described in Pattern 1’s “Scale with Azure” step.
 
-[^pattern1-actions]: Microsoft 365 Copilot release notes — August 19, 2025, Microsoft Learn. Updated: 2025-08-19. [https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025)
-[^pattern2-4-procode]: Microsoft 365 Agents SDK overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)
+5. **Assess orchestration complexity.** Mirror the “Multi-Agent Orchestration” diagram in [Visual Framework]({{ '/docs/visual-framework#multi-agent-orchestration' | relative_url }}).  
+   - **Managed connected/child agents or Logic Apps AI Agent workflows suffice** → stay with **Patterns 1 or 2** and lean on those tooling features.  
+   - **Need programmable routing, checkpointing, or specialized agent collaboration** → invest in **Pattern 5** (Agent Framework workflows) and surface them through **Pattern 2** or **Pattern 4** channels.[^agent-workflows][^agentsdk-overview]
 
----
+**Before you decide:** Validate your choice against the scenario playbooks in `docs/scenarios.md` and the capability layers in `docs/capability-model.md` to ensure the pattern supports the right layer of Microsoft’s AI portfolio. Use the comparison matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) to double-check complexity, skills, budget, and governance trade-offs.
+
+[^pattern3-knowledge]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Updated: 2025-09-15. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
+[^pattern1-actions]: Microsoft 365 Copilot release notes — August 19, 2025, Microsoft Learn. [https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025)
+[^skills-matrix]: Evaluation Criteria — Skills & Resources, Microsoft AI Decision Framework. See `docs/evaluation-criteria.md`.
+[^agent-workflows]: Microsoft Agent Framework Workflows overview, Microsoft Learn. [https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview)
+[^agentsdk-overview]: Microsoft 365 Agents SDK overview, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)
+
+----
 
 {: .note-title }
 > Related Resources
@@ -291,7 +297,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 > - For evaluation criteria, see [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
 > - For guardrail guidance, see [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }})
 
----
+----
 
 **Next:** [Technologies]({{ '/docs/technologies' | relative_url }}) - Deep dive into technical specifications
 
@@ -304,11 +310,9 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 [^feature-comparison]: See `docs/feature-comparison.md` for the detailed comparison matrices referenced in this pattern.
 [^evaluation-governance]: See Governance & Compliance in `docs/evaluation-criteria.md#governance--compliance` for scoring guidance.
 [^api-plugins]: API plugins for Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)
-[^agentsdk-overview]: Microsoft 365 Agents SDK overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)
 [^agents-toolkit]: Microsoft 365 Agents Toolkit overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit)
 [^agentsdk-build]: Build custom engine agents with Microsoft 365 Agents SDK, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk)
 [^agentframework-overview]: Microsoft Agent Framework overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
-[^agent-workflows]: Microsoft Agent Framework Workflows overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview)
 [^agent-orchestrations]: Agent Framework orchestration overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview)
 [^agent-checkpoint]: Checkpointing and resuming workflows, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/checkpointing-and-resuming](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/checkpointing-and-resuming)
 [^agent-azure-workflow]: Agents in Workflows tutorial, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/agents-in-workflows](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/agents-in-workflows)
@@ -318,5 +322,4 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 [^declarative-agents]: Declarative agents for Microsoft 365 Copilot overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent)
 [^knowledge-sharepoint]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
 [^knowledge-sources]: Add knowledge sources to declarative agents in Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-lite-knowledge](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-lite-knowledge)
-[^pattern3-knowledge]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Updated: 2025-09-15. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
 [^bring-agents]: Bring your agents into Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/bring-agents-to-copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/bring-agents-to-copilot)
