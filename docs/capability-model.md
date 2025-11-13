@@ -56,6 +56,7 @@ Platforms for building agents with varying levels of control and complexity.
 |------------|-------------|------------------|---------------|
 | **Copilot Studio** | Low-code to pro-code SaaS for custom agents | Managed governance, multi-channel, BYOM/BYOK | [Docs](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) |
 | **Microsoft Agent Framework** | Successor to Semantic Kernel and AutoGen that unifies agent and workflow development (Public Preview) | Multi-agent workflows (sequential, concurrent, handoff, Magentic), thread-based state, MCP and tool integration | [Docs](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) |
+| **AG-UI Protocol Integration (Preview)** | Standardized protocol to surface Agent Framework experiences in custom web and mobile clients | Seven protocol capabilities (streaming, backend tool rendering, human-in-loop approvals, generative UI, shared/predictive state) with ASP.NET Core and FastAPI adapters; CopilotKit interoperability | [Docs](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 | **M365 Agents SDK** | Full-stack SDK for publishing custom engine agents across Microsoft 365 Copilot, Teams, web, and custom apps | Channel adapters, conversation state, orchestrator-agnostic (Agent Framework, Semantic Kernel, LangChain) | [Docs](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) |
 | **Azure AI Foundry** | Unified development environment for model catalog, prompt flow, evaluations, and agent runtime | Integrates with Azure AI Agent Service or standalone workflows for RAG and custom copilots | [Docs](https://learn.microsoft.com/en-us/azure/ai-foundry/) |
 | **Azure AI Agent Service** | Managed runtime for building, hosting, and scaling agent experiences | Built-in memory management, tool calling, secure connectors, catalog samples | [Docs](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) |
@@ -142,6 +143,7 @@ Manage all agents (Studio, SDK, declarative) from Microsoft 365 admin center (GA
 - [Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new) (Updated: April 2025)
 - [Microsoft Agent Framework Overview](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects.agent-readme) (Updated: 2025)
 - [Agent Framework with M365 SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/semantic-kernel-agent-framework) (Updated: 2025)
+- [AG-UI Integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: November 11, 2025)
 - [LangChain with Azure Machine Learning (Third-party)](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-integrate-with-langchain) (Updated: 2025)
 - [LangGraph Tutorial with Azure AI Search (Third-party)](https://learn.microsoft.com/en-us/azure/developer/javascript/ai/langchain-agent-on-azure) (Updated: 2025)
 - [LangSmith Tracing for Agents (Third-party)](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-agents-sdk) (Updated: 2025)

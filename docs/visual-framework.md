@@ -55,7 +55,10 @@ flowchart TD
     Q3 -->|Pro-code| Q4{Primary platform?}
     
     Q4 -->|M365-centric| SDK[M365 Agents SDK]
-    Q4 -->|Azure-centric| Foundry[Azure AI Foundry]
+    Q4 -->|Azure-centric| Q4Azure{Need custom UI<br/>protocol?}
+
+    Q4Azure -->|Yes| AGUI[Agent Framework + AG-UI<br/><i>Preview</i>]
+    Q4Azure -->|No| Foundry[Azure AI Foundry]
     
     Auto_Path --> Q5{Build approach?}
     Q5 -->|Low-code| StudioAuto[Copilot Studio<br/>with Event Triggers]
@@ -72,6 +75,7 @@ flowchart TD
     Studio --> DataQ
     StudioAuto --> DataQ
     SDK --> DataQ
+    AGUI --> DataQ
     Foundry --> DataQ
     LogicApps --> DataQ
     AgentService --> DataQ
@@ -114,6 +118,7 @@ flowchart TD
     style StudioAuto fill:#0078D4,color:#fff
     style SDK fill:#5C2D91,color:#fff
     style Foundry fill:#D83B01,color:#fff
+    style AGUI fill:#5C2D91,color:#fff
     style LogicApps fill:#0078D4,color:#fff
     style AgentService fill:#D83B01,color:#fff
 ```
@@ -132,6 +137,7 @@ flowchart TD
 | **Copilot Studio** | ⚠️ Actions can execute (add approval workflows) | 🔄 Reactive (conversational) or **✅ Autonomous (event triggers)** | Low-code, 13+ channels [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
 | **M365 Agents SDK** | ⚠️ Custom action safety design | ✅ Proactive capable | Pro-code, 10+ channels, C#/JS/Python, BYO orchestrator [(docs)](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) |
 | **Azure AI Foundry** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom UI deployment [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/use-web-app) |
+| **Agent Framework + AG-UI** (Preview) | ⚠️ Approvals via AG-UI middleware | ✅ Proactive capable (inherits host orchestration) | Protocol bridges agents to web/mobile UI with SSE streaming, backend tool rendering, shared state, and CopilotKit components [(docs)](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 
 #### Autonomous Agents
 {: .no_toc }
@@ -181,6 +187,7 @@ flowchart TD
     Dev -->|Multi-agent orchestration| DevOrch[Agent Framework<br/><i>Public Preview</i>]
     Dev -->|Multi-platform| DevChoice{Skill level?}
     Dev -->|Autonomous agents| DevAuto{Event-driven?}
+    Dev -->|Custom UI streaming| DevAGUI[Agent Framework + AG-UI<br/><i>Preview</i>]
     
     DevChoice -->|Mid-level| DevStudio[Copilot Studio<br/>+ Custom Actions]
     DevChoice -->|Senior| DevSDK[M365 SDK or Foundry]
@@ -201,6 +208,7 @@ flowchart TD
     DevSDK --> DevSDKEnd([Full code solution])
     DevLogic --> DevLogicEnd([Event-driven agent])
     DevFoundry --> DevFoundryEnd([Custom agent])
+    DevAGUI --> DevAGUIEnd([Custom streaming UI])
     DSFabric --> DSFabricEnd([Data agent])
     DSFoundry --> DSFoundryEnd([ML pipeline])
     IntSpec --> IntSpecEnd([Enterprise workflows])
@@ -213,6 +221,7 @@ flowchart TD
     style DevOrch fill:#5C2D91,color:#fff
     style DevLogic fill:#0078D4,color:#fff
     style DevFoundry fill:#D83B01,color:#fff
+    style DevAGUI fill:#5C2D91,color:#fff
     style DSFabric fill:#FFB900,color:#000
     style DSFoundry fill:#D83B01,color:#fff
     style IntSpec fill:#0078D4,color:#fff
@@ -246,6 +255,7 @@ flowchart TD
 | **M365 Agents SDK** | Pro-code for M365-centric solutions, C#/JavaScript/Python, 10+ channels, BYO orchestrator | [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) |
 | **Azure AI Foundry** | Pro-code for Azure-centric solutions, custom models, full control | [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) |
 | **Microsoft Agent Framework** (Public Preview) | **Microsoft's investment direction** - Next-gen multi-agent orchestration framework (5 patterns: Sequential, Concurrent, Handoff, Group Chat, Magentic). **Use instead of Semantic Kernel** (maintenance mode). Works with M365 SDK or standalone. | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
+| **Agent Framework + AG-UI** (Preview) | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 | **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Copilot Studio Extensibility](https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-plugins-overview) |
 | **Logic Apps AI Agent Workflows** (Preview) | Event-driven autonomous agents, 1,400+ connectors | [Logic Apps Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
 

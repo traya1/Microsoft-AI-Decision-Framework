@@ -204,13 +204,14 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 2. Stand up specialized agents (Azure AI Agent Service, Azure AI Foundry, or custom ChatClient agents) and register them as workflow executors.[^agent-azure-workflow][^agent-azure-agent]
 3. Choose the right orchestration pattern—Sequential, Concurrent, Handoff, Group Chat, or Magentic—and configure routing rules that match each agent’s responsibilities.[^agent-orchestrations]
 4. Add reliability primitives like checkpointing, event streaming, and human-in-the-loop gates before hosting the workflow runtime.[^agent-checkpoint]
-5. Expose the orchestrator through your preferred surface (M365 Agents SDK, web API, Logic Apps trigger) so downstream channels can invoke the multi-agent workflow.[^agentsdk-overview]
+5. Expose the orchestrator through your preferred surface (M365 Agents SDK, web API, Logic Apps trigger) so downstream channels can invoke the multi-agent workflow. Use the AG-UI protocol (Preview) when you need streaming, shared state, or human-approval experiences in custom web or mobile clients.[^agentsdk-overview][^agui-integration]
 
 **Strengths:**
 
 - Purpose-built for complex, multi-step collaboration with first-class orchestration patterns.[^agent-orchestrations]
 - Strong typing, validation, and checkpointing reduce runtime surprises in long-running or regulated processes.[^agent-workflows][^agent-checkpoint]
 - Works with Azure AI Agent Service or persistent Foundry agents, letting you reuse enterprise-grade agents inside coordinated workflows.[^agent-azure-workflow][^agent-azure-agent]
+- Surfaces advanced UI experiences through the AG-UI protocol with Server-Sent Events streaming, backend tool rendering, and human-in-the-loop approvals.[^agui-integration]
 
 **Trade-offs:**
 
@@ -318,6 +319,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 [^agent-azure-workflow]: Agents in Workflows tutorial, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/agents-in-workflows](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/agents-in-workflows)
 [^agent-azure-agent]: Azure AI Foundry Agents integration, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/azure-ai-foundry-agent](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/azure-ai-foundry-agent)
 [^agent-transparency]: Azure AI Agent Service transparency note, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities)
+[^agui-integration]: AG-UI integration with Agent Framework, Microsoft Learn. Preview, Updated: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/)
 [^graph-connectors]: Microsoft Graph connectors overview (external data indexing into Microsoft 365), Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview)
 [^declarative-agents]: Declarative agents for Microsoft 365 Copilot overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent)
 [^knowledge-sharepoint]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)

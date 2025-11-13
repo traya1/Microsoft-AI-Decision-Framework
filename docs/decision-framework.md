@@ -71,7 +71,7 @@ Apply these questions **sequentially** after passing the BXT assessment. Each qu
 Identify the primary place people will engage with the agent. The interaction surface immediately narrows the candidate technologies.
 
 - **M365 apps** (Teams, Outlook, Word) → Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
-- **Custom or multi-channel** (web, mobile, SMS, email) → Use M365 Agents SDK, Azure AI Foundry, or Logic Apps to reach every endpoint consistently.
+- **Custom or multi-channel** (web, mobile, SMS, email) → Use M365 Agents SDK, Azure AI Foundry, or Logic Apps to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web/mobile experiences.[^agui-overview]
 - **API/headless** workloads → Design for services that call the agent as a capability rather than a UI.
 
 📎 Use the groupings from this question with the layer mappings in [Five-Layer Capability Model]({{ '/docs/capability-model' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
@@ -84,7 +84,7 @@ Identify the primary place people will engage with the agent. The interaction su
 Decide how much engineering control you need versus how fast you must ship.
 
 - **Low-code / managed** – Copilot Studio, AI Builder, declarative agents. Makers and developers can deliver in days when declarative orchestration is enough.
-- **Pro-code / customizable** – M365 Agents SDK, Azure AI Foundry, Microsoft Agent Framework, Teams AI Library. Full control over orchestration, hosting, and integrations.
+- **Pro-code / customizable** – M365 Agents SDK, Azure AI Foundry, Microsoft Agent Framework, AG-UI protocol (Preview), Teams AI Library. Full control over orchestration, hosting, and integrations while surfacing agents in any UI channel.[^agui-overview]
 - **Hybrid** – Start in Copilot Studio for speed, bring in Azure AI Foundry or Agent Framework when custom logic or private hosting is required.
 
 🧭 For side-by-side capabilities, see the development approach matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) and [Technologies]({{ '/docs/technologies' | relative_url }}).
@@ -202,6 +202,7 @@ Determine whether the agent is purely reactive or must trigger events on its own
 [^logicappstrigger]: *Trigger an agent by using Logic Apps (preview)*, Microsoft Learn. Updated 2025-10-17.
 [^agentservicega]: *What's new in Azure AI Foundry Agent Service*, Microsoft Learn. Updated 2025-05-15.
 [^copilotstudioevent]: *Create automated copilots triggered by events*, Microsoft Learn. GA 2025-03-24.
+[^agui-overview]: *AG-UI integration with Agent Framework*, Microsoft Learn. Preview, Updated 2025-11-11.
 
 ## Phase 3: Scenario-Specific Selection
 

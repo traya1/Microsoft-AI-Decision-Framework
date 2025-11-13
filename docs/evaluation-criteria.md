@@ -35,7 +35,7 @@ Use this framework to evaluate your organization's readiness and requirements be
 |-----------------|-----------------|--------------------------|
 | **Low** | Simple Q&A, existing knowledge base, single data source | M365 Copilot, Graph Connectors, Declarative Agents |
 | **Medium** | Multiple data sources, workflow automation, approvals | Copilot Studio, AI Builder, Power Automate |
-| **High** | Custom models, multi-agent orchestration, custom evaluation | Azure AI Foundry, M365 Agents SDK, Agent Framework |
+| **High** | Custom models, multi-agent orchestration, custom evaluation | Azure AI Foundry, M365 Agents SDK, Agent Framework, Agent Framework + AG-UI (Preview)[^agui-eval] |
 | **Very High** | Multi-step reasoning, complex state management | Azure AI Foundry + Agent Framework, custom pipelines |
 
 **Key Indicators:**
@@ -258,6 +258,7 @@ Performance optimization varies by platform and use case. Choose based on your p
 - Custom patterns beyond platform capabilities
 - Custom integrations outside standard connector ecosystem
 - Team has Azure and AI engineering expertise
+- Pair with the AG-UI protocol (Preview) when you need SSE streaming, shared state, or human approvals surfaced directly in custom web or mobile clients.[^agui-eval]
 
 **Complementary Use:**
 
@@ -388,3 +389,4 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
 [^logicappstrigger-ec]: *Trigger an agent by using Logic Apps (preview)*, Microsoft Learn. Updated 2025-06-30.
 [^agentservicega-ec]: *What's new in Azure AI Foundry Agent Service*, Microsoft Learn. Updated 2025-05-15.
 [^agentssdk-ec]: *Bring your agents into Microsoft 365 Copilot*, Microsoft Learn. Updated 2025-09-12.
+[^agui-eval]: *AG-UI integration with Agent Framework*, Microsoft Learn. Preview, Updated 2025-11-11.

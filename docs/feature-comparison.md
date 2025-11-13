@@ -22,26 +22,26 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 ## Comprehensive Platform Comparison
 
-| Feature | M365 Copilot | Copilot Studio | Azure AI Foundry | **Microsoft Agent Framework** | Azure AI Agent Service | M365 Agents SDK | **Azure Logic Apps** |
-|---------|--------------|----------------|------------------|------------------------------|------------------------|-----------------|----------------------|
-| **User Experience** | M365 apps | Custom channels | Custom apps | Embedded in apps | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
-| **Build Approach** | No-build (consume) | Low-code to pro-code | Code-first | Pro-code (orchestration SDK) | Code-first | Pro-code | **Visual designer + code** |
-| **Data Boundary** | M365 tenant | M365 or Azure | Azure | Any | Azure | M365 or Azure | **Azure** |
-| **Governance** | Tenant-integrated (automatic) | Tenant or workload | Workload-tailored (custom) | Application-level | Workload-tailored (custom) | Tenant or workload | **Azure RBAC** |
-| **Admin Center** | M365 admin center | Power Platform admin | Azure RBAC | Application-level | Azure RBAC | M365 admin center | **Azure portal** |
-| **Licensing Model** | Per-user (\/month) | Metered messages | Azure consumption | Open-source (free) | Azure consumption | Included in M365 | **Consumption or Standard** |
-| **Extensibility** | Via Studio/SDK | Plugins, connectors | Full custom | Workflow orchestration | Full custom | Full custom | **1,400+ connectors** |
-| **Deployment** | Microsoft-managed | Microsoft-managed | Self-managed | Self-managed (SDK) | Microsoft-managed | Self-managed | **Self-managed (Azure)** |
-| **Time to Value** | Immediate | Days to weeks | Weeks to months | Weeks (with dev skills) | Weeks to months | Weeks | **Days to weeks** |
-| **Skill Level** | End user | Maker to developer | Developer/engineer | Developer (C#/Python) | Developer/engineer | Developer | **Developer** |
-| **Orchestration** | Built-in | Built-in | Custom | **Workflow-based (Executor/Edge)** | Managed orchestration | BYO orchestrator | **Visual workflow** |
-| **Checkpointing** | N/A | No | Custom | **Yes (built-in)** | No | Via orchestrator | **State management** |
-| **AI Agent Workflows** | N/A | Via agent flows | Via Agent Service[^aafs-triggers] | N/A | ✅ Yes | N/A | **✅ Yes (Preview)**[^logicapps-agents] |
-| **MCP Server** | N/A | ❌ No | ✅ Yes (MCP tool)[^aafs-mcp] | N/A | ⚠️ Custom | N/A | **✅ Yes (Preview)**[^logicapps-mcp] |
-| **Optimized For** | Productivity at scale | Speed to market + connectors | Latency & control | Workflow orchestration | Managed agents | Pro-code flexibility | Enterprise integration |
-| **Latency Profile** | <1s (M365 apps) | <1s (managed platform) | <100ms (direct API) | Workflow processing | <100ms (direct API) | <1s (M365 integration) | Workflow processing |
-| **Infrastructure Model** | Microsoft-managed | SaaS (managed) | PaaS (self-managed) | SDK (self-managed) | PaaS (self-managed) | SDK (self-managed) | PaaS (self-managed) |
-| **Best For** | Broad productivity | Custom agents | Custom AI apps | **Workflow orchestration** | Managed agents | Pro-code extensions | **Enterprise integration + AI** |
+| Feature | M365 Copilot | Copilot Studio | Azure AI Foundry | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Azure AI Agent Service | M365 Agents SDK | **Azure Logic Apps** |
+|---------|--------------|----------------|------------------|------------------------------|----------------------------|------------------------|-----------------|----------------------|
+| **User Experience** | M365 apps | Custom channels | Custom apps | Embedded in apps | Protocol-based web/mobile UI | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
+| **Build Approach** | No-build (consume) | Low-code to pro-code | Code-first | Pro-code (orchestration SDK) | Pro-code protocol integration (ASP.NET Core, FastAPI) | Code-first | Pro-code | **Visual designer + code** |
+| **Data Boundary** | M365 tenant | M365 or Azure | Azure | Any | Inherits host runtime | Azure | M365 or Azure | **Azure** |
+| **Governance** | Tenant-integrated (automatic) | Tenant or workload | Workload-tailored (custom) | Application-level | Inherits host app controls; approvals via middleware | Workload-tailored (custom) | Tenant or workload | **Azure RBAC** |
+| **Admin Center** | M365 admin center | Power Platform admin | Azure RBAC | Application-level | Host platform (Azure/App) | Azure RBAC | M365 admin center | **Azure portal** |
+| **Licensing Model** | Per-user (\/month) | Metered messages | Azure consumption | Open-source (free) | Open-source adapters (no license) | Azure consumption | Included in M365 | **Consumption or Standard** |
+| **Extensibility** | Via Studio/SDK | Plugins, connectors | Full custom | Workflow orchestration | Seven protocol features (streaming, backend tool rendering, human approvals, generative UI, shared/predictive state) | Full custom | Full custom | **1,400+ connectors** |
+| **Deployment** | Microsoft-managed | Microsoft-managed | Self-managed | Self-managed (SDK) | Self-hosted endpoints (ASP.NET Core, FastAPI) | Microsoft-managed | Self-managed | **Self-managed (Azure)** |
+| **Time to Value** | Immediate | Days to weeks | Weeks to months | Weeks (with dev skills) | Weeks (requires pro dev + UI build) | Weeks to months | Weeks | **Days to weeks** |
+| **Skill Level** | End user | Maker to developer | Developer/engineer | Developer (C#/Python) | Developers (front-end + back-end) | Developer/engineer | Developer | **Developer** |
+| **Orchestration** | Built-in | Built-in | Custom | **Workflow-based (Executor/Edge)** | Inherits Agent Framework orchestration | Managed orchestration | BYO orchestrator | **Visual workflow** |
+| **Checkpointing** | N/A | No | Custom | **Yes (built-in)** | Inherits from orchestrator | No | Via orchestrator | **State management** |
+| **AI Agent Workflows** | N/A | Via agent flows | Via Agent Service[^aafs-triggers] | N/A | N/A (UI protocol) | ✅ Yes | N/A | **✅ Yes (Preview)**[^logicapps-agents] |
+| **MCP Server** | N/A | ❌ No | ✅ Yes (MCP tool)[^aafs-mcp] | N/A | N/A | ⚠️ Custom | N/A | **✅ Yes (Preview)**[^logicapps-mcp] |
+| **Optimized For** | Productivity at scale | Speed to market + connectors | Latency & control | Workflow orchestration | Bespoke agent UI with streaming & approvals | Managed agents | Pro-code flexibility | **Enterprise integration** |
+| **Latency Profile** | <1s (M365 apps) | <1s (managed platform) | <100ms (direct API) | Workflow processing | SSE streaming (depends on backend) | <100ms (direct API) | <1s (M365 integration) | Workflow processing |
+| **Infrastructure Model** | Microsoft-managed | SaaS (managed) | PaaS (self-managed) | SDK (self-managed) | SDK bridging host + client | PaaS (self-managed) | SDK (self-managed) | PaaS (self-managed) |
+| **Best For** | Broad productivity | Custom agents | Custom AI apps | **Workflow orchestration** | Custom branded experiences and generative UI atop Agent Framework | Managed agents | Pro-code extensions | **Enterprise integration + AI** |
 
 [^aafs-triggers]: *What's new in Azure AI Foundry Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents.
 [^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Retrieved: 2025-11-10.
@@ -53,6 +53,7 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 - [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/overview-what-is-copilot-studio) (Retrieved: 2025-11-10)
 - [Azure AI Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) (Updated: 2025-05-29)
 - [Microsoft Agent Framework workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) (Updated: 2025-09-12)
+- [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: 2025-11-11)
 - [Azure AI Agent Service docs](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) (Updated: 2025-05-29)
 - [M365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2025-09-23)
 - [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2025-11-10)

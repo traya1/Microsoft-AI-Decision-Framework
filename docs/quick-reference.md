@@ -27,6 +27,7 @@ This page provides fast-lookup tables for common scenarios. For detailed decisio
 | **Microsoft 365 Apps** | M365 Copilot + Declarative Agents (pinned/@mentioned agents), Graph Connectors | Need managed Copilot experiences embedded in Word, Excel, Outlook, or Teams meetings with agent pinning and static meeting tabs |
 | **Microsoft Teams Only** | Copilot Studio, M365 Agents SDK | Teams-centric chat or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Azure AI Foundry, Azure AI Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
+| **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
 | **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
 | **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
 | **Enterprise Workflows** | Azure Logic Apps AI Agents (Preview), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
@@ -38,6 +39,7 @@ This page provides fast-lookup tables for common scenarios. For detailed decisio
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-06-16)
 - [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-10-09)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
+- [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: 2025-11-11)
 
 **Confidence Level:** High (all technologies GA except Logic Apps AI Agents Preview)
 
