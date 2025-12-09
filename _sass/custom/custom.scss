@@ -58,6 +58,11 @@ body {
 	align-items: flex-start;
 }
 
+/* Hide unused sidebar footer */
+body > .side-bar > footer {
+	display: none !important;
+}
+
 .side-bar .site-header,
 .side-bar .site-nav,
 .side-bar .site-nav .nav-list,
