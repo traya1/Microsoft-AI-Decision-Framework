@@ -129,7 +129,7 @@ flowchart TD
 ### Validation Summary
 {: .no_toc }
 
-**Last Validated:** November 2025
+**Last Validated:** January 2026
 
 #### UI-Based Agents (GA unless noted)
 {: .no_toc }
@@ -199,7 +199,7 @@ flowchart TD
     DevAuto -->|Custom orchestration| DevFoundry[Microsoft Foundry - Azure<br/>+ Agent Service]
     
     DS -->|Analytics/BI| DSFabric[Fabric Data Agents<br/><i>Preview</i>]
-    DS -->|ML/Custom models| DSFoundry[Azure AI Foundry]
+    DS -->|ML/Custom models| DSFoundry[Microsoft Foundry - Azure]
     
     User --> UserEnd([Start using Copilot])
     MakerStudio --> MakerEnd([Build in Studio])
@@ -233,7 +233,7 @@ flowchart TD
 ### Validation Summary - Persona-Based Flow
 {: .no_toc }
 
-**Last Validated:** November 3, 2025
+**Last Validated:** January 28, 2026
 
 #### End User (GA)
 {: .no_toc }
@@ -256,7 +256,7 @@ flowchart TD
 | Technology | Description | Documentation |
 |------------|-------------|---------------|
 | **M365 Agents SDK** | Pro-code for M365-centric solutions, C#/JavaScript/Python, 10+ channels, BYO orchestrator | [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) |
-| **Azure AI Foundry** | Pro-code for Azure-centric solutions, custom models, full control | [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) |
+| **Microsoft Foundry (Azure)** | Pro-code for Azure-centric solutions, custom models, full control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry) |
 | **Microsoft Agent Framework** (Public Preview) | **Microsoft's investment direction** - Next-gen multi-agent orchestration framework (5 patterns: Sequential, Concurrent, Handoff, Group Chat, Magentic). **Use instead of Semantic Kernel** (maintenance mode). Works with M365 SDK or standalone. | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | **Agent Framework + AG-UI** (Preview) | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 | **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Copilot Studio Extensibility](https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-plugins-overview) |
@@ -268,7 +268,7 @@ flowchart TD
 | Technology | Description | Documentation |
 |------------|-------------|---------------|
 | **Fabric Data Agents** (Preview) | Analytics/BI focus, Python SDK, evaluation capabilities, Power BI/semantic models | [Fabric Data Agents](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) \| [Python SDK](https://learn.microsoft.com/en-us/fabric/data-science/evaluate-data-agent) |
-| **Azure AI Foundry** | ML/custom models, full AI/ML pipeline control | [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) |
+| **Microsoft Foundry (Azure)** | ML/custom models, full AI/ML pipeline control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry) |
 
 #### Integration Specialist
 {: .no_toc }
@@ -296,53 +296,53 @@ flowchart TD
     
     AzureData -->|Documents, PDFs| Q2{File count?}
     AzureData -->|Structured DB| DB{Database?}
-    AzureData -->|Unstructured| Blob[Blob Storage + AI Search]
+    AzureData -->|Unstructured| Blob[Blob Storage with AI Search]
     
-    Q2 -->|&lt; 10,000 files<br/>Simple setup| FileSearch{Platform?}
+    Q2 -->|Under 10,000 files<br/>Simple setup| FileSearch{Platform?}
     Q2 -->|Production scale<br/>Custom chunking| Search[Azure AI Search]
-    Q2 -->|Multimodal content| ContentUnderstanding[Azure AI Content Understanding<br/>+ AI Search<br/><i>Preview</i>]
+    Q2 -->|Multimodal content| ContentUnderstanding[Azure AI Content Understanding<br/>with AI Search<br/>Preview]
     
-    FileSearch -->|Azure Agent Service| AgentFileSearch[Agent Service File Search<br/>Auto chunk/embed]
+    FileSearch -->|Azure Agent Service| AgentFileSearch[Agent Service File Search<br/>Auto chunk and embed]
     FileSearch -->|Copilot Studio| StudioKnowledge[Studio Knowledge Base<br/>Up to 1,000 files<br/>SharePoint or OneDrive]
     
     DB -->|Global scale, NoSQL| Cosmos{Vector algorithm?}
-    DB -->|Relational| Postgres[PostgreSQL + pgvector]
-    DB -->|Enterprise SQL| SQL[SQL Server 2025<br/>VECTOR <i>Preview</i>]
+    DB -->|Relational| Postgres[PostgreSQL with pgvector]
+    DB -->|Enterprise SQL| SQL[SQL Server 2025<br/>VECTOR Preview]
     
-    Cosmos -->|Flat index| CosmosIVF[Cosmos DB + IVF]
-    Cosmos -->|Graph-based| CosmosHNSW[Cosmos DB + HNSW]
-    Cosmos -->|Disk-optimized| CosmosDiskANN[Cosmos DB + DiskANN]
+    Cosmos -->|Flat index| CosmosIVF[Cosmos DB IVF]
+    Cosmos -->|Graph-based| CosmosHNSW[Cosmos DB HNSW]
+    Cosmos -->|Disk-optimized| CosmosDiskANN[Cosmos DB DiskANN]
     
-    Hybrid -->|M365 primary| HybridM365[Graph + BYOK]
-    Hybrid -->|Azure primary| HybridAzure[AI Search + Graph API]
+    Hybrid -->|M365 primary| HybridM365[Graph with BYOK]
+    Hybrid -->|Azure primary| HybridAzure[AI Search with Graph API]
     
     FabricData --> Q3{Access method?}
-    Q3 -->|Direct platform access| FabricPlatform[Fabric Lakehouse/Warehouse<br/>OneLake + SQL endpoint]
-    Q3 -->|Conversational agent| FabricAgent[Fabric Data Agents<br/><i>Preview</i>]
+    Q3 -->|Direct platform access| FabricPlatform[Fabric Lakehouse and Warehouse<br/>OneLake with SQL endpoint]
+    Q3 -->|Conversational agent| FabricAgent[Fabric Data Agents<br/>Preview]
     
-    Graph --> Layer{Which<br/>platform?}
-    GraphTeams --> Layer
-    GraphCustom --> Layer
-    AgentFileSearch --> Layer
-    StudioKnowledge --> Layer
-    Search --> Layer
-    ContentUnderstanding --> Layer
-    CosmosIVF --> Layer
-    CosmosHNSW --> Layer
-    CosmosDiskANN --> Layer
-    Postgres --> Layer
-    SQL --> Layer
-    Blob --> Layer
-    HybridM365 --> Layer
-    HybridAzure --> Layer
-    FabricPlatform --> Layer
-    FabricAgent --> Layer
+    Graph --> Platform{Which<br/>platform?}
+    GraphTeams --> Platform
+    GraphCustom --> Platform
+    AgentFileSearch --> Platform
+    StudioKnowledge --> Platform
+    Search --> Platform
+    ContentUnderstanding --> Platform
+    CosmosIVF --> Platform
+    CosmosHNSW --> Platform
+    CosmosDiskANN --> Platform
+    Postgres --> Platform
+    SQL --> Platform
+    Blob --> Platform
+    HybridM365 --> Platform
+    HybridAzure --> Platform
+    FabricPlatform --> Platform
+    FabricAgent --> Platform
     
-    Layer -->|M365 Copilot| LayerM365([Use built-in])
-    Layer -->|Copilot Studio| LayerStudio([Configure Studio])
-    Layer -->|M365 SDK| LayerSDK([Code integration])
-    Layer -->|Azure Foundry| LayerFoundry([Configure Foundry])
-    Layer -->|Logic Apps| LayerLogicApps([MCP Server/<br/>Connector])
+    Platform -->|M365 Copilot| PlatformM365([Use built-in])
+    Platform -->|Copilot Studio| PlatformStudio([Configure Studio])
+    Platform -->|M365 SDK| PlatformSDK([Code integration])
+    Platform -->|Microsoft Foundry Azure| PlatformFoundry([Configure Foundry])
+    Platform -->|Logic Apps| PlatformLogicApps([MCP Server<br/>Connector])
     
     style Graph fill:#004578,color:#fff
     style AgentFileSearch fill:#004578,color:#fff
@@ -361,7 +361,7 @@ flowchart TD
 ### Validation Summary - Data Grounding Decision
 {: .no_toc }
 
-**Last Validated:** November 3, 2025
+**Last Validated:** January 28, 2026
 
 #### M365 Data Sources (GA)
 {: .no_toc }
@@ -406,7 +406,7 @@ flowchart TD
 
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
-| **Microsoft Fabric Platform** | GA | Direct knowledge source access via Lakehouse (Delta tables, Spark), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), KQL databases. Azure AI Foundry integration for RAG | [Fabric Overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) \| [AI Foundry Fabric Integration](https://learn.microsoft.com/en-us/azure/ai-foundry/faq) |
+| **Microsoft Fabric Platform** | GA | Direct knowledge source access via Lakehouse (Delta tables, Spark), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), KQL databases. Microsoft Foundry (Azure) integration for RAG | [Fabric Overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) \| [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq) |
 | **Fabric Data Agents** | Preview | Analytics data grounding (warehouses, lakehouses, Power BI semantic models, KQL databases), Copilot Studio connected agents, Foundry Agent Service integration | [Fabric Data Agents](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) \| [Copilot Studio Integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
 
 #### MCP Integration (Preview)
@@ -433,30 +433,30 @@ flowchart TD
     Start([Assess Use Case]) --> Q1{How many<br/>data sources?}
     
     Q1 -->|1| Simple
-    Q1 -->|2-3| Q2{Workflow<br/>complexity?}
-    Q1 -->|4+| Complex
+    Q1 -->|2 to 3| Q2{Workflow<br/>complexity?}
+    Q1 -->|4 or more| Complex
     
     Q2 -->|Linear| Medium
     Q2 -->|Branching| Complex
     
     Simple[Low Complexity] --> S_Tech{Skills?}
-    S_Tech -->|Makers| S_M365[M365 Copilot + Graph]
+    S_Tech -->|Makers| S_M365[M365 Copilot with Graph]
     S_Tech -->|Devs| S_Studio[Copilot Studio]
     
     Medium[Medium Complexity] --> M_Tech{Skills?}
     M_Tech -->|Makers| M_Studio[Copilot Studio]
-    M_Tech -->|Devs| M_SDK[Studio + Custom Actions]
+    M_Tech -->|Devs| M_SDK[Studio with Custom Actions]
     
     Complex[High Complexity] --> C_Tech{Need custom<br/>models?}
     C_Tech -->|No| C_SDK[M365 Agents SDK]
-    C_Tech -->|Yes| C_Foundry[Azure AI Foundry]
+    C_Tech -->|Yes| C_Foundry[Microsoft Foundry Azure]
     
     S_M365 --> Timeline1[Days to deploy]
-    S_Studio --> Timeline2[1-2 weeks]
-    M_Studio --> Timeline3[2-4 weeks]
-    M_SDK --> Timeline4[1-2 months]
-    C_SDK --> Timeline5[2-3 months]
-    C_Foundry --> Timeline6[3-6 months]
+    S_Studio --> Timeline2[1 to 2 weeks]
+    M_Studio --> Timeline3[2 to 4 weeks]
+    M_SDK --> Timeline4[1 to 2 months]
+    C_SDK --> Timeline5[2 to 3 months]
+    C_Foundry --> Timeline6[3 to 6 months]
     
     style Simple fill:#0b6a0b,color:#fff
     style Medium fill:#8c5e00,color:#fff
@@ -472,29 +472,29 @@ flowchart TD
     Start([Project Constraints]) --> Q1{AI setup<br/>budget?}
     
     Q1 -->|Existing M365| M365Only[M365-Only Path]
-    Q1 -->|$200-500/mo| Starter[Starter Budget]
-    Q1 -->|$1K-5K/mo| Growth[Growth Budget]
-    Q1 -->|$5K+/mo| Enterprise[Enterprise Budget]
+    Q1 -->|USD 200 to 500 per month| Starter[Starter Budget]
+    Q1 -->|USD 1K to 5K per month| Growth[Growth Budget]
+    Q1 -->|USD 5K or more per month| Enterprise[Enterprise Budget]
     
     M365Only --> M365T{Timeline?}
-    M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>$0 addl - included with M365<br/>Instruction-based agents]
-    M365T -->|1-2 Weeks| M365_Med[M365 Copilot + Graph<br/>$0 addl<br/>Knowledge grounding]
-    M365T -->|1 Month+| M365_Slow[Declarative Agents<br/>$0 addl or PAYG<br/>Custom instructions + data]
+    M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>0 addl cost included with M365<br/>Instruction-based agents]
+    M365T -->|1 to 2 Weeks| M365_Med[M365 Copilot with Graph<br/>0 addl cost<br/>Knowledge grounding]
+    M365T -->|1 Month or more| M365_Slow[Declarative Agents<br/>0 addl cost or PAYG<br/>Custom instructions and data]
     
     Starter --> StarterT{Timeline?}
-    StarterT -->|1-2 Weeks| S_Fast[Copilot Studio PAYG<br/>$200-500/mo avg<br/>$0.01/credit, low-code]
-    StarterT -->|1-2 Months| S_Med[Studio + AI Builder<br/>$200-500/mo<br/>Document processing]
-    StarterT -->|3+ Months| S_Slow[Logic Apps AI Workflows<br/>~$200-400/mo<br/>Preview, event-driven]
+    StarterT -->|1 to 2 Weeks| S_Fast[Copilot Studio PAYG<br/>USD 200 to 500 per month avg<br/>USD 0.01 per credit, low-code]
+    StarterT -->|1 to 2 Months| S_Med[Studio with AI Builder<br/>USD 200 to 500 per month<br/>Document processing]
+    StarterT -->|3 or more Months| S_Slow[Logic Apps AI Workflows<br/>Approx 200 to 400 per month<br/>Preview, event-driven]
     
     Growth --> GrowthT{Timeline?}
-    GrowthT -->|2-4 Weeks| G_Fast[Copilot Studio Capacity<br/>$200+/mo prepaid<br/>25K credits/pack]
-    GrowthT -->|1-3 Months| G_Med[M365 SDK + Azure Basic<br/>$1-3K/mo<br/>Custom agents, Azure hosting]
-    GrowthT -->|3-6 Months| G_Slow[Azure AI Foundry Starter<br/>$1-5K/mo<br/>PAYG tokens + AI Search Basic]
+    GrowthT -->|2 to 4 Weeks| G_Fast[Copilot Studio Capacity<br/>200 or more per month prepaid<br/>25K credits per pack]
+    GrowthT -->|1 to 3 Months| G_Med[M365 SDK with Azure Basic<br/>USD 1 to 3K per month<br/>Custom agents, Azure hosting]
+    GrowthT -->|3 to 6 Months| G_Slow[Microsoft Foundry Azure Starter<br/>USD 1 to 5K per month<br/>PAYG tokens with AI Search Basic]
     
     Enterprise --> EntT{Timeline?}
-    EntT -->|4-8 Weeks| E_Fast[Foundry Serverless<br/>$5-15K/mo est<br/>PAYG + AI Search Standard]
-    EntT -->|3-6 Months| E_Med[Foundry + Agent Service<br/>$10-30K/mo est<br/>Managed orchestration]
-    EntT -->|6+ Months| E_Slow[Foundry PTU + Premium<br/>$30K+/mo<br/>PTU reservation + S2/S3 Search]
+    EntT -->|4 to 8 Weeks| E_Fast[Foundry Serverless<br/>Approx 5 to 15K per month est<br/>PAYG with AI Search Standard]
+    EntT -->|3 to 6 Months| E_Med[Foundry with Agent Service<br/>USD 10 to 30K per month est<br/>Managed orchestration]
+    EntT -->|6 or more Months| E_Slow[Foundry PTU with Premium<br/>30K or more per month<br/>PTU reservation with S2 or S3 Search]
     
     style M365_Fast fill:#0b6a0b,color:#fff
     style M365_Med fill:#0b6a0b,color:#fff
@@ -512,7 +512,7 @@ flowchart TD
 ### Validation Summary - Budget & Timeline Tradeoffs
 {: .no_toc }
 
-**Last Validated:** November 3, 2025
+**Last Validated:** January 28, 2026
 
 #### M365-Only ($0 AI infrastructure add'l)
 {: .no_toc }
@@ -539,7 +539,7 @@ flowchart TD
 |----------|--------------|---------------|
 | **Copilot Studio Capacity Packs** | $200/month per 25,000 credits | Prepaid [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-prepaid-copilot-credits-subscription) |
 | **M365 SDK + Azure** | $600-2.3K/mo | SDK free; Azure hosting (App Service ~$100-300/mo) + Azure OpenAI PAYG (~$500-2K/mo tokens) [(docs)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations#agents-in-copilot) |
-| **Azure AI Foundry Starter** | $1-5K/mo estimate | PAYG tokens + AI Search Basic (~$75/mo) [(OpenAI pricing)](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) \| [(AI Search pricing)](https://learn.microsoft.com/en-us/azure/search/search-sku-tier#tier-descriptions) |
+| **Microsoft Foundry (Azure) Starter** | $1-5K/mo estimate | PAYG tokens + AI Search Basic (~$75/mo) [(OpenAI pricing)](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) \| [(AI Search pricing)](https://learn.microsoft.com/en-us/azure/search/search-sku-tier#tier-descriptions) |
 
 #### Enterprise ($5K+/mo)
 {: .no_toc }
@@ -558,7 +558,7 @@ flowchart TD
 | **Days** | M365 built-in features, no development | [(scenarios)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview) |
 | **1-2 Weeks** | Low-code platforms (Copilot Studio Employee Self-Service, Logic Apps) | [(HR Knowledge Base scenario)]({{ '/docs/scenarios' | relative_url }}) |
 | **1-3 Months** | Custom agents with SDKs, moderate complexity | [(Customer Support scenario)]({{ '/docs/scenarios' | relative_url }}) |
-| **3-6 Months** | Azure AI Foundry custom solutions, complex orchestration | [(evaluation-criteria)]({{ '/docs/evaluation-criteria#time-to-production' | relative_url }}) |
+| **3-6 Months** | Microsoft Foundry (Azure) custom solutions, complex orchestration | [(evaluation-criteria)]({{ '/docs/evaluation-criteria#time-to-production' | relative_url }}) |
 | **6+ Months** | Enterprise-scale with PTU, fine-tuning, advanced patterns | |
 
 #### Cost Calculation Notes
@@ -572,12 +572,12 @@ flowchart TD
 #### Sources
 {: .no_toc }
 
-- [Copilot Studio Licensing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing) (Updated: 2025)
-- [M365 Copilot Cost Considerations](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations) (Updated: 2025)
+- [Copilot Studio Licensing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing) (Updated: 2025-11-05)
+- [M365 Copilot Cost Considerations](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations) (Updated: 2025-11-25)
 - [Azure OpenAI Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) (Updated: 2025)
-- [Azure AI Search Tiers](https://learn.microsoft.com/en-us/azure/search/search-sku-tier) (Updated: 2025)
-- [Logic Apps AI Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Preview, Updated: 2025)
-- [AI Builder Overview](https://learn.microsoft.com/en-us/ai-builder/overview) (Updated: 2025)
+- [Azure AI Search Tiers](https://learn.microsoft.com/en-us/azure/search/search-sku-tier) (Updated: 2025-11-06)
+- [Logic Apps AI Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Preview, Updated: 2025-11-18)
+- [AI Builder Overview](https://learn.microsoft.com/en-us/ai-builder/overview) (Updated: 2026-01-14)
 
 ---
 
@@ -593,18 +593,18 @@ flowchart TD
     Q1 -->|Flexible<br/>Multi-region OK| R3[Flexible Residency]
     
     R1 --> Q2{Built-in DLP<br/>sufficient?}
-    Q2 -->|Yes, inherit M365| G1[M365 Copilot<br/>M365 Boundary + DLP]
+    Q2 -->|Yes, inherit M365| G1[M365 Copilot<br/>M365 Boundary with DLP]
     Q2 -->|Need custom agents| G2[Copilot Studio<br/>Power Platform Governance]
     
     R2 --> Q3{Network<br/>isolation?}
-    Q3 -->|VNet + private<br/>endpoints required| G3[Azure AI Foundry<br/>VNet + Private Endpoints]
-    Q3 -->|Managed runtime<br/>+ VNet needed| G4[AI Agent Service<br/>Full Azure Governance]
+    Q3 -->|VNet with private<br/>endpoints required| G3[Microsoft Foundry Azure<br/>VNet with Private Endpoints]
+    Q3 -->|Managed runtime<br/>with VNet needed| G4[AI Agent Service<br/>Full Azure Governance]
     Q3 -->|Power Platform<br/>governance sufficient| G5[AI Builder<br/>Power Platform DLP]
     
     R3 --> Q4{Development<br/>model?}
-    Q4 -->|Enterprise workflows<br/>+ integration| G6[Logic Apps Standard<br/>Azure RBAC + VNet]
-    Q4 -->|Multi-channel<br/>custom agents| G7[M365 Agents SDK<br/>Custom Auth + Hosting]
-    Q4 -->|Orchestration<br/>library only| G8[Agent Framework<br/>Host-Inherited Governance]
+    Q4 -->|Enterprise workflows<br/>with integration| G6[Logic Apps Standard<br/>Azure RBAC with VNet]
+    Q4 -->|Multi-channel<br/>custom agents| G7[M365 Agents SDK<br/>Custom Auth with Hosting]
+    Q4 -->|Orchestration<br/>library only| G8[Agent Framework<br/>Host inherited governance]
     
     style G1 fill:#0b6a0b,color:#fff
     style G2 fill:#004578,color:#fff
@@ -619,7 +619,7 @@ flowchart TD
 ### Validation Summary: Governance & Compliance Path
 {: .no_toc }
 
-**Last Validated:** November 2025
+**Last Validated:** January 2026
 
 #### M365 Tenant Boundary Technologies
 {: .no_toc }
@@ -634,7 +634,7 @@ flowchart TD
 
 | Technology | Action Safety | Proactive | Data Grounding/Memory/Analytics | Key Governance Features | Documentation |
 |------------|---------------|-----------|----------------------------------|------------------------|---------------|
-| **Azure AI Foundry** (GA) | ⚠️ Tool calling with autonomous planning | ✅ Proactive (Azure Functions, Logic Apps) | Grounding + BYO thread storage (Cosmos DB), Azure Monitor + OpenTelemetry | Azure RBAC (control + data plane), VNet + private endpoints, managed identity, CMK optional, ⚠️ API key OR Entra ID (Entra recommended) | [Azure AI Foundry Security](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/planning) |
+| **Microsoft Foundry (Azure)** (GA) | ⚠️ Tool calling with autonomous planning | ✅ Proactive (Azure Functions, Logic Apps) | Grounding + BYO thread storage (Cosmos DB), Azure Monitor + OpenTelemetry | Azure RBAC (control + data plane), VNet + private endpoints, managed identity, CMK optional, ⚠️ API key OR Entra ID (Entra recommended) | [Microsoft Foundry security](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/planning) |
 | **AI Agent Service** | ⚠️ Autonomous with action tools (Logic Apps, Functions, MCP) | ✅ Proactive (event triggers) | BYO thread storage (Cosmos DB), Azure Monitor project-scoped | Full RBAC (project + resource), VNet + private endpoints, BYO storage, no public egress by default, container injection for VNet | [Agent Service Security](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/data-privacy-security) |
 | **AI Builder** (GA) | Varies by model type | ❌ Reactive | Dataverse storage | Power Platform DLP, Dataverse RBAC, environment location | [AI Builder Governance](https://learn.microsoft.com/en-us/ai-builder/administer) |
 
@@ -649,7 +649,7 @@ flowchart TD
 
 **Key Decision Criteria:**
 - **M365 tenant boundary required** → M365 Copilot (strict) or Copilot Studio (custom agents)
-- **Azure region control + VNet isolation** → Azure AI Foundry or AI Agent Service
+- **Azure region control + VNet isolation** → Microsoft Foundry (Azure) or Foundry Agent Service
 - **Enterprise workflow automation** → Logic Apps Standard
 - **Custom multi-channel agents** → M365 Agents SDK (full control, full responsibility)
 - **Orchestration library only** → Agent Framework (no built-in governance)
@@ -662,24 +662,24 @@ flowchart TD
 flowchart TD
     Start([Need Multi-Agent?]) --> Q1{Pattern Type?}
     
-    Q1 -->|Connected agents<br/>Mesh - A2A| Connected[Connected/Mesh Pattern]
-    Q1 -->|Sequential/Parallel<br/>workflows| Workflows[Agent Workflow Orchestration]
+    Q1 -->|Connected agents<br/>Mesh A2A| Connected[Connected mesh pattern]
+    Q1 -->|Sequential or parallel<br/>workflows| Workflows[Agent Workflow Orchestration]
     Q1 -->|Event triggers| EventDriven[Event-Driven Agents]
     
     Connected --> C_Platform{Platform?}
-    C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Agent2Agent - A2A<br/>Decentralized Mesh]
-    C_Platform -->|Azure| C_Foundry[Azure AI Foundry GA<br/>Connected agents<br/>Sub-agent delegation]
+    C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Agent2Agent A2A<br/>Decentralized Mesh]
+    C_Platform -->|Azure| C_Foundry[Microsoft Foundry Azure GA<br/>Connected agents<br/>Sub-agent delegation]
     
     Workflows --> W_Framework{Framework?}
-    W_Framework -->|Microsoft| W_AgentFW[Microsoft Agent Framework Preview<br/>Sequential/Concurrent/Handoff/Magentic]
-    W_Framework -->|Open source| W_SK[Semantic Kernel<br/>Sequential/Concurrent/Group Chat<br/>Handoff/Magentic]
+    W_Framework -->|Microsoft| W_AgentFW[Microsoft Agent Framework Preview<br/>Sequential, Concurrent, Handoff, Magentic]
+    W_Framework -->|Open source| W_SK[Semantic Kernel<br/>Sequential, Concurrent, Group Chat<br/>Handoff, Magentic]
     W_Framework -->|Bring your own| W_SDK[M365 Agents SDK<br/>Integrate Agent Framework or SK]
     W_Framework -->|Third-party state| W_LangGraph[LangGraph Third-Party<br/>State graphs]
     
     EventDriven --> E_Type{Event source?}
-    E_Type -->|Enterprise systems| E_Logic[Logic Apps Preview<br/>AI Agent Workflows<br/>+ MCP Server<br/>Single agent event-triggered]
-    E_Type -->|Azure events| E_Functions[Azure Functions<br/>+ Agent Service<br/>Single agent event-triggered]
-    E_Type -->|Custom events| E_Custom[Event Grid + Foundry<br/>Event routing to agents]
+    E_Type -->|Enterprise systems| E_Logic[Logic Apps Preview<br/>AI Agent Workflows<br/>MCP Server<br/>Single agent event triggered]
+    E_Type -->|Azure events| E_Functions[Azure Functions<br/>Agent Service<br/>Single agent event triggered]
+    E_Type -->|Custom events| E_Custom[Event Grid with Foundry<br/>Event routing to agents]
     
     C_Studio --> Note1[Can connect Fabric Data Agents<br/>as data grounding participants]
     C_Foundry --> Note2[Fabric Data Agents can integrate<br/>as connected agents]
@@ -702,7 +702,7 @@ flowchart TD
 ### Validation Summary: Multi-Agent Orchestration
 {: .no_toc }
 
-**Last Validated:** November 2025
+**Last Validated:** January 2026
 
 #### Connected Agents / Sub-Agent Pattern
 {: .no_toc }
@@ -710,7 +710,7 @@ flowchart TD
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
 | **Copilot Studio** | Preview | Agent2Agent (A2A) decentralized mesh, Connected agents, child agents, handoffs | [Connected Agents](https://learn.microsoft.com/microsoft-copilot-studio/advanced-connected-agents) |
-| **Azure AI Foundry Agent Service** | GA | Connected agents with natural language sub-agent delegation | [Connected Agents](https://learn.microsoft.com/azure/ai-services/agents/concepts/connected-agents) |
+| **Foundry Agent Service** | GA | Connected agents with natural language sub-agent delegation | [Connected Agents](https://learn.microsoft.com/azure/ai-services/agents/concepts/connected-agents) |
 | **Fabric Data Agents** | Preview | Consumed by other agents for data grounding (NOT orchestrator) | [Fabric Integration](https://learn.microsoft.com/fabric/data-activator/data-agent-copilot-studio-integration) |
 
 #### Agent Workflow Orchestration
@@ -765,7 +765,7 @@ flowchart TD
 ### Validation Summary: Upgrade Paths
 {: .no_toc }
 
-**Last Validated:** May 2025
+**Last Validated:** January 2026
 
 #### Progressive Enhancement Mechanisms
 {: .no_toc }
@@ -801,6 +801,8 @@ flowchart TD
 
 ---
 
-**Last Updated:** November 2025  
+**Last Updated:** January 28, 2026  
 **Next:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Score complexity, skills, budget, and governance after selecting a path
+
+---
 

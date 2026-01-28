@@ -6,7 +6,7 @@ applyTo: '**'
 
 ## Project Overview
 
-This is a **comprehensive decision framework and reference guide** for navigating Microsoft's AI technology portfolio. The project helps users systematically evaluate and select the right Microsoft AI technology (M365 Copilot, Copilot Studio, Azure AI Foundry, Agent Service, SDKs, etc.) for their specific business requirements.
+This is a **comprehensive decision framework and reference guide** for navigating Microsoft's AI technology portfolio. The project helps users systematically evaluate and select the right Microsoft AI technology (M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, SDKs, etc.) for their specific business requirements.
 
 **Primary Goal:** Enable evidence-based technology selection through a structured learning journey that progresses from foundational concepts to technical mastery.
 
@@ -34,7 +34,7 @@ This is a **comprehensive decision framework and reference guide** for navigatin
 The documentation follows a **progressive learning flow** designed to build knowledge systematically:
 
 1. **README.md** (nav_order: 1) - Landing page with learning paths
-2. **docs/capability-model.md** (nav_order: 2) - **Foundation** - Five-layer capability model
+2. **docs/capability-model.md** (nav_order: 2) - **Foundation** - Five capability groupings
 3. **docs/decision-framework.md** (nav_order: 3) - **Methodology** - BXT three-phase approach
 4. **docs/scenarios.md** (nav_order: 4) - **Context** - Real-world use cases
 5. **docs/visual-framework.md** (nav_order: 5) - **Application** - 8 Mermaid decision tree diagrams
@@ -78,7 +78,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 ### Source-Backed Research Principle
 
-**CRITICAL:** All technology capabilities, features, and status annotations (GA/Preview/Experimental) MUST be validated against official Microsoft Learn documentation.
+**CRITICAL:** All technology capabilities, features, and status annotations (GA/Preview/Experimental) MUST be validated against official Microsoft documentation sources. Microsoft Learn is primary, but some official docs live elsewhere (VS Code docs on code.visualstudio.com, GitHub Docs on docs.github.com, Aspire docs on aspire.dev).
 
 **Never:**
 - Guess or assume features based on product naming
@@ -87,8 +87,10 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 **Always:**
 - Search Microsoft Learn documentation first
+- If Microsoft Learn does not host the relevant product documentation, use the official product documentation site (VS Code, GitHub Docs, Aspire.dev)
 - Cite sources with URLs and last updated dates
 - Note when information is unavailable or unclear
+- If a source does not publish a “last updated” date, record an access date instead
 - Mark Preview/Experimental/GA status explicitly
 
 ### Shoeboxing Prevention
@@ -103,7 +105,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 **Validation workflow when adding/editing diagrams:**
 1. Identify every technology mentioned
-2. Search Microsoft Learn for official documentation
+2. Search Microsoft Learn first; if not available, use official product docs (VS Code, GitHub Docs, Aspire.dev)
 3. Verify the specific capability claimed in the diagram
 4. Document validation with source URLs and dates
 5. Add validation summary to diagram section
@@ -114,7 +116,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 1.  **`docs/capability-model.md` (The "What")**
     *   **Purpose:** Defines abstract capabilities (e.g., "Orchestration"), NOT a product list.
-    *   **Rule:** Only use products as *examples* of a capability. Do not add "New Product X" as a new layer or capability unless it fundamentally changes the *abstract model*.
+    *   **Rule:** Only use products as *examples* of a capability. Do not add "New Product X" as a new grouping or capability unless it fundamentally changes the *abstract model*.
 
 2.  **`docs/decision-framework.md` (The "How")**
     *   **Purpose:** Defines the *methodology* (BXT, 9 Questions) for choosing.
@@ -180,7 +182,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 ### Multi-Agent Orchestration Patterns
 
 **Three distinct patterns validated:**
-1. **Connected Agents:** Independent agents that communicate/collaborate (Copilot Studio Connected Agents, Azure AI Foundry GA May 2025)
+1. **Connected Agents:** Independent agents that communicate/collaborate (Copilot Studio Connected Agents, Microsoft Foundry (Azure) GA May 2025)
 2. **Sub-agents:** Parent-child hierarchy where main agent delegates to specialized children (Copilot Studio child agents, Agent Framework sub-agent delegation)
 3. **Agent Workflows:** Sequential/Concurrent/Handoff orchestration (Microsoft Agent Framework, LangGraph)
 
@@ -279,13 +281,13 @@ bundle exec jekyll serve
 
 ## Key Concepts & Terminology
 
-### Five-Layer Capability Model
+### Capability Model: Five Groupings
 
-**Layer 1: Consumption** - M365 Copilot, built-in agents, Agent Store  
-**Layer 2: Extensibility** - Graph Connectors, AI Plugins, Declarative Agents  
-**Layer 3: Development Platforms** - Copilot Studio, M365 Agents SDK, Agent Framework, Azure AI Foundry  
-**Layer 4: Infrastructure & AI Services** - Azure OpenAI, AI Search, Document Intelligence, Logic Apps, Cosmos DB, Fabric  
-**Layer 5: Specialized Copilots** - GitHub Copilot, Security Copilot, Dynamics 365 Copilots, Fabric Data Agents, Azure SRE Agent
+**Grouping 1: End‑user copilots** - M365 Copilot, built-in agents, Agent Store  
+**Grouping 2: Extensibility into existing copilots** - Graph Connectors, AI Plugins, Declarative Agents  
+**Grouping 3: Build AI apps and agents** - Copilot Studio, M365 Agents SDK, Agent Framework, Microsoft Foundry (Azure)  
+**Grouping 4: AI services and building blocks** - Azure OpenAI, AI Search, Document Intelligence, Logic Apps, Cosmos DB, Fabric  
+**Grouping 5: Specialized agents** - GitHub Copilot, Security Copilot, Dynamics 365 Copilots, Fabric Data Agents, Azure SRE Agent
 
 ### BXT Decision Framework
 
@@ -315,17 +317,17 @@ bundle exec jekyll serve
 ### Common Technology Distinctions
 
 **Microsoft Fabric:**
-- **Platform** (Layer 4): Lakehouse/Warehouse/OneLake for direct data access
-- **AI Layer** (Layer 5): Fabric Data Agents (Preview) - conversational analytics agent
+- **Platform** (Grouping 4): Lakehouse/Warehouse/OneLake for direct data access
+- **Specialized agents** (Grouping 5): Fabric Data Agents (Preview) - conversational analytics agent
 
 **M365 Agents SDK:**
 - Pro-code framework for M365-centric agents
 - BYO orchestrator model (integrate Agent Framework Preview recommended, LangChain third-party alternative)
 - 10+ channels (Teams, Outlook, M365 Chat)
 
-**Azure AI Foundry:**
+**Microsoft Foundry (Azure):**
 - Code-first platform for custom models, RAG, evaluations
-- Works with OR without Azure AI Agent Service
+- Works with OR without Foundry Agent Service
 - Connected Agents GA May 2025
 
 **Copilot Studio:**
@@ -340,11 +342,11 @@ bundle exec jekyll serve
 
 ### Adding a New Technology
 
-1. **Research first:** Find official Microsoft Learn documentation
+1. **Research first:** Find official documentation (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
 2. **Validate capabilities:** Confirm what it CAN and CANNOT do
 3. **Check status:** GA, Preview, or Experimental?
 4. **Update files:**
-   - Add to `docs/capability-model.md` (appropriate layer)
+    - Add to `docs/capability-model.md` (appropriate capability grouping)
    - Add to `docs/technologies.md` (technical specs)
    - Update relevant diagrams in `docs/visual-framework.md`
    - Add to `docs/feature-comparison.md` (comparison matrix)
@@ -355,7 +357,7 @@ bundle exec jekyll serve
 ### Updating Diagram Validation
 
 **When Microsoft releases updates:**
-1. Search Microsoft Learn for latest documentation
+1. Search Microsoft Learn first; if not available, use official product docs (VS Code, GitHub Docs, Aspire.dev)
 2. Check for new capabilities, renamed features, or status changes
 3. Update Mermaid diagram nodes if needed
 4. Update validation summary with changes and new source URLs
@@ -373,20 +375,27 @@ bundle exec jekyll serve
 ### Adding Cross-References
 
 **When connecting documentation modules:**
-1. Use descriptive link text: `[Five-Layer Capability Model - Layer 2](capability-model.md#layer-2-extensibility)`
+1. Use descriptive link text: `[Capability Model - Grouping 2](../docs/capability-model.md)`
 2. Include context: "See [Scenarios](scenarios.md) for real-world examples"
 3. Add "Related Documentation" sections in validation summaries
 4. Link visual decisions to detailed docs: "Use [Evaluation Framework](evaluation-criteria.md) to assess complexity"
 
 ---
 
+## Writing Style & Voice (Thought Leadership)
+
+- Teach a **way of thinking**; lead with principles, framing questions, and decision levers.
+- Use an **instructor-led, narrative tone** that brings clarity to complex or messy problems.
+- **Widen the lens before narrowing**: help readers see trade-offs, then guide them to choices.
+- Avoid answer-key or product-first language in core files; explain *how to decide* instead.
+
 ## Quality Checklist
 
 Before committing changes, verify:
 
 **Content Quality:**
-- [ ] All technology claims backed by Microsoft Learn sources
-- [ ] Source URLs included with last updated dates
+- [ ] All technology claims backed by official Microsoft documentation sources (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
+- [ ] Source URLs included with last updated dates or access dates
 - [ ] GA/Preview/Experimental status explicitly marked
 - [ ] No shoeboxing (capabilities match official documentation)
 - [ ] Third-party tools explicitly labeled (LangGraph, LangChain)
@@ -410,6 +419,7 @@ Before committing changes, verify:
 - [ ] Bullet points for lists (not numbered unless sequential steps)
 - [ ] Code blocks use appropriate language tags
 - [ ] Tables formatted consistently
+- [ ] Thought-leadership tone that teaches decision-making over product selection
 
 ---
 
@@ -425,7 +435,7 @@ Before committing changes, verify:
 - SQL Server 2025 VECTOR: Preview RC1
 - Azure AI Content Understanding: Preview (2025-05-01-preview API)
 - Copilot Studio Connected Agents: Preview
-- Azure AI Foundry Connected Agents: GA May 2025
+- Microsoft Foundry (Azure) Connected Agents: GA May 2025
 - Graph Connectors: GA March 2025
 
 **Rapid evolution note:** Microsoft's AI portfolio changes frequently. Always verify with official sources for production decisions. Documentation maintenance requires re-research every 3-6 months.
@@ -434,7 +444,7 @@ Before committing changes, verify:
 
 **When Microsoft releases updates:**
 1. Monitor [M365 Copilot Release Notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes)
-2. Check [Azure AI Foundry What's New](https://learn.microsoft.com/en-us/azure/ai-foundry/whats-new)
+2. Check [Microsoft Foundry What's New](https://learn.microsoft.com/en-us/azure/ai-foundry/whats-new)
 3. Review [Copilot Studio Release Plans](https://learn.microsoft.com/en-us/power-platform/release-plan/)
 4. Update affected diagrams and validation summaries
 5. Verify cross-references remain accurate
@@ -447,7 +457,7 @@ Before committing changes, verify:
 ### When Asked to Add Features
 
 **DO:**
-- Research official Microsoft Learn documentation first
+- Research official documentation first (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
 - Validate capabilities against official sources
 - Add validation summary with sources
 - Update multiple related files (capability-model, technologies, visual-framework, quick-reference)
@@ -497,9 +507,9 @@ Before committing changes, verify:
 ## Success Metrics
 
 **This framework is successful when users can:**
-1. Understand Microsoft's five-layer AI capability model
+1. Understand Microsoft's five capability groupings
 2. Apply BXT methodology to validate use cases
-3. Use 6 critical questions to shortlist technologies
+3. Use 9 critical questions to shortlist technologies
 4. Navigate decision trees to select appropriate technology
 5. Assess complexity, skills, budget, and governance requirements
 6. Implement proven architecture patterns
@@ -511,7 +521,7 @@ Before committing changes, verify:
 - Navigation flow supports progressive learning
 - Cross-references create cohesive framework
 - Status annotations accurate (GA/Preview/Experimental)
-- Sources include last updated dates
+- Sources include last updated dates or access dates
 
 ---
 
@@ -523,7 +533,7 @@ Before committing changes, verify:
 
 **For contributors:**
 - Follow validation methodology (no shoeboxing)
-- Research before editing (Microsoft Learn sources only)
+- Research before editing (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
 - Test locally before committing
 - Update cross-references when changing structure
 - Add validation summaries to all diagrams

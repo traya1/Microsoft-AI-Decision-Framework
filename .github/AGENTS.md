@@ -11,7 +11,7 @@ This file provides persistent guidance to AI coding assistants (like Codex CLI, 
 ## Project Context
 
 **What this project does:**  
-Provides a comprehensive decision framework for selecting the right Microsoft AI technology (M365 Copilot, Copilot Studio, Azure AI Foundry, etc.) based on business requirements, technical complexity, and organizational capabilities.
+Provides a comprehensive decision framework for selecting the right Microsoft AI technology (M365 Copilot, Copilot Studio, Microsoft Foundry, etc.) based on business requirements, technical complexity, and organizational capabilities.
 
 **Why it exists:**  
 Microsoft's AI portfolio is vast and rapidly evolving. This framework helps technical decision-makers avoid costly mistakes by providing evidence-based, source-backed guidance for technology selection.
@@ -120,20 +120,20 @@ Use these consistently:
 - `(Experimental)` - Early access, highly volatile
 - `(Third-party)` - Non-Microsoft (e.g., LangGraph, LangChain)
 
-### Five-Layer Capability Model
+### Capability Model: Five Groupings
 
-When referencing technologies, identify their layer:
-- **Layer 1: Consumption** - M365 Copilot, built-in agents
-- **Layer 2: Extensibility** - Graph Connectors, AI Plugins, Declarative Agents
-- **Layer 3: Development Platforms** - Copilot Studio, M365 SDK, Azure AI Foundry
-- **Layer 4: Infrastructure** - Azure OpenAI, AI Search, Logic Apps, Cosmos DB, Fabric
-- **Layer 5: Specialized Copilots** - GitHub Copilot, Security Copilot, Fabric Data Agents
+When referencing technologies, identify their capability grouping:
+- **Grouping 1: End‑user copilots** - M365 Copilot, built-in agents
+- **Grouping 2: Extensibility into existing copilots** - Graph Connectors, AI Plugins, Declarative Agents
+- **Grouping 3: Build AI apps and agents** - Copilot Studio, M365 SDK, Microsoft Foundry (Azure)
+- **Grouping 4: AI services and building blocks** - Azure OpenAI, AI Search, Logic Apps, Cosmos DB, Fabric
+- **Grouping 5: Specialized agents** - GitHub Copilot, Security Copilot, Fabric Data Agents
 
 ### BXT Decision Framework
 
 When discussing decision-making:
 1. **Phase 1: BXT Assessment** - Viability (Business), Desirability (Experience), Feasibility (Technology)
-2. **Phase 2: 6 Critical Questions** - User interaction, Build style, Platform, Data, Orchestration, Infrastructure
+2. **Phase 2: 9 Critical Questions** - Experience location, Build style & control, Data grounding, Orchestration complexity, Compliance & trust boundary, Scale & cost, Action safety, Team skills, Proactive actions
 3. **Phase 3: Technology Selection** - Compare shortlist, evaluate criteria, select simplest option
 
 ### Multi-Agent Orchestration Patterns
@@ -158,7 +158,7 @@ When discussing multi-agent capabilities, distinguish THREE patterns:
    - Identify: GA/Preview/Experimental status, capabilities, limitations
 
 2. **Update files:**
-   - `docs/capability-model.md` - Add to appropriate layer
+   - `docs/capability-model.md` - Add to appropriate capability grouping
    - `docs/technologies.md` - Add technical specifications
    - `docs/visual-framework.md` - Update relevant diagrams + validation summaries
    - `docs/feature-comparison.md` - Add to comparison matrices
@@ -224,7 +224,7 @@ When discussing multi-agent capabilities, distinguish THREE patterns:
 ### When Asked: "Add cross-references"
 
 **Good cross-references:**
-- Descriptive: `[Five-Layer Capability Model - Layer 2](capability-model.md#layer-2-extensibility)`
+- Descriptive: `[Capability Model - Grouping 2](../docs/capability-model.md)`
 - Contextual: "See [Scenarios](scenarios.md) for real-world examples"
 - Actionable: "Use [Evaluation Framework](evaluation-criteria.md) to assess complexity"
 
@@ -277,7 +277,7 @@ Before proposing edits, verify:
 - ✅ M365 Copilot (not "Microsoft 365 Copilot")
 - ✅ Copilot Studio (not "Microsoft Copilot Studio")
 - ✅ M365 Agents SDK (not "Microsoft 365 Agents SDK")
-- ✅ Azure AI Foundry (not "Azure AI Studio" - rebranded)
+- ✅ Microsoft Foundry (Azure) (not "Azure AI Studio" - rebranded)
 - ✅ Azure AI Agent Service (not "AI Agent Service")
 - ✅ Microsoft Agent Framework (not "Agent Framework SDK")
 - ✅ Logic Apps AI Agent Workflows (not "Logic Apps Agents")
@@ -287,7 +287,7 @@ Before proposing edits, verify:
 - M365 Copilot: GA
 - Copilot Studio: GA
 - M365 Agents SDK: GA
-- Azure AI Foundry: GA
+- Microsoft Foundry (Azure): GA
 - Azure AI Agent Service: GA
 - Microsoft Agent Framework: Preview/Experimental (Microsoft's investment direction, will be GA soon)
 - Semantic Kernel: Maintenance mode (security patches only, no new features - recommend Agent Framework instead)
@@ -296,7 +296,7 @@ Before proposing edits, verify:
 - SQL Server 2025 VECTOR: Preview RC1
 - Azure AI Content Understanding: Preview
 - Copilot Studio Connected Agents: Preview
-- Azure AI Foundry Connected Agents: GA May 2025
+- Microsoft Foundry (Azure) Connected Agents: GA May 2025
 - Graph Connectors: GA March 2025
 
 ---
@@ -305,8 +305,8 @@ Before proposing edits, verify:
 
 ### Microsoft Fabric: Platform vs. Agent
 
-- **Microsoft Fabric Platform** (Layer 4): Lakehouse, Warehouse, OneLake for direct data access
-- **Fabric Data Agents** (Layer 5): Conversational AI agent for analytics, can participate as connected agent
+- **Microsoft Fabric Platform** (Grouping 4): Lakehouse, Warehouse, OneLake for direct data access
+- **Fabric Data Agents** (Grouping 5): Conversational AI agent for analytics, can participate as connected agent
 
 ### M365 SDK: Integration vs. Built-in
 
