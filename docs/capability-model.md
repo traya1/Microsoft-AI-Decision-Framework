@@ -105,7 +105,7 @@ These patterns are explicitly described as extensions to Microsoft Copilots, and
 
 ### 3) Build AI apps and agents (hybrid by default)
 
-This grouping is for **custom experiences**. Your app may be 95% deterministic and still benefit from including a meaningful AI feature (semantic search, summarization, or a task agent). This is normal.
+This grouping is for **custom experiences**. Your app may be 95% deterministic and still benefit from including a meaningful AI feature (semantic search, summarization, or agentic RAG). This is normal.
 
 - **Agent flows and workflows** support mixing deterministic steps with AI reasoning (for example, Copilot Studio agent flows and Foundry multi‑agent workflows). [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio), [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true)
 
@@ -127,7 +127,7 @@ Microsoft and partners ship specialized agents for specific domains. These are o
 
 ## Capability Envisioning (Approaches Can Be Combined)
 
-Microsoft’s ISV guidance defines three approaches—create copilots anywhere with minimal code, extend existing Copilots, or build full‑control experiences—and explicitly states these approaches are **not mutually exclusive**. This is why hybrid solutions are normal. See [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning).
+Microsoft’s ISV guidance defines three approaches—create copilots, extend existing Copilots, or build full‑control experiences—and explicitly states these approaches are **not mutually exclusive**. This is why hybrid solutions are normal. See [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning).
 
 ---
 
