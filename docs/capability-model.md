@@ -49,7 +49,7 @@ In Microsoft guidance, agents can handle tasks, take actions, and operate in con
 
 These dimensions help you describe *what kind* of AI capability you’re building—before you name a product.
 
-- **UI vs no‑UI:** Experiences can be conversational or they can run via triggers, schedules, or workflows. Copilot Studio supports both conversational and triggered agent flows. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+- **User vs system-initiated interactions:** Interactions can be user-initiated experiences (conversational/embedded assistants) or they can be system-initiated via triggers, schedules, or workflows (running headlessly with results surfacing via downstream systems). For example, Copilot Studio supports both conversational and triggered agent flows. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 - **Assistive vs autonomous:** Assistive agents co‑pilot with the user; autonomous agents act on instructions and context. Both models are supported; you decide the guardrails. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 - **Deterministic vs nondeterministic:** If the task is predictable, use deterministic code or classic RAG. Agents add nondeterminism and cost only when reasoning is required. [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents)
 - **Single‑agent vs multi‑agent workflows:** Some problems are solved by one agent; others need coordinated agents and workflows. Microsoft Foundry’s new portal emphasizes multi‑agent orchestration as a core capability. [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true)
@@ -99,13 +99,13 @@ End‑user copilots provide a ready‑made AI UI. The capability is the **experi
 If your users already live in Microsoft apps, extend what they already use.
 
 - **Plugins** let you surface your data and actions inside Microsoft Copilots.
-- **Graph connectors** bring external content into the Microsoft 365 ecosystem so Copilot can reason over it.
+- **Copilot connectors** (formerly Graph connectors) bring external content into the Microsoft 365 ecosystem so Copilot can reason over it.
 
 These patterns are explicitly described as extensions to Microsoft Copilots, and they are designed to meet users where they already work. See [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story).
 
 ### 3) Build AI apps and agents (hybrid by default)
 
-This grouping is for **custom experiences**. Your app may be 95% deterministic and still include a meaningful AI feature (semantic search, summarization, or a task agent). This is normal.
+This grouping is for **custom experiences**. Your app may be 95% deterministic and still benefit from including a meaningful AI feature (semantic search, summarization, or a task agent). This is normal.
 
 - **Agent flows and workflows** support mixing deterministic steps with AI reasoning (for example, Copilot Studio agent flows and Foundry multi‑agent workflows). [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio), [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true)
 
@@ -127,7 +127,7 @@ Microsoft and partners ship specialized agents for specific domains. These are o
 
 ## Capability Envisioning (Approaches Can Be Combined)
 
-Microsoft’s ISV guidance defines three approaches—extend existing Copilots, create copilots anywhere with minimal code, or build full‑control experiences—and explicitly states these approaches are **not mutually exclusive**. This is why hybrid solutions are normal. See [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning).
+Microsoft’s ISV guidance defines three approaches—create copilots anywhere with minimal code, extend existing Copilots, or build full‑control experiences—and explicitly states these approaches are **not mutually exclusive**. This is why hybrid solutions are normal. See [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning).
 
 ---
 
