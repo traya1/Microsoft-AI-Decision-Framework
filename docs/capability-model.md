@@ -19,6 +19,18 @@ This page is **not a decision tree**. It is a teaching aid for *how to think* ab
 
 For a detailed intake workflow, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
+## The Provider Mindset: Outcomes Over Features
+
+Before exploring capabilities, adopt a critical mental shift: **AI technologies are not tools to be purchased—they are Providers of specific organizational capabilities.** This reframing, drawn from the AI Capability Provider Model, transforms every technical decision into a strategic conversation about business outcomes.
+
+| Feature-Centric Question | Outcome-Centric Question |
+| :--- | :--- |
+| "What can this tool do?" | "What outcome does this provider deliver?" |
+| "Does it have the features we need?" | "Can it reliably deliver the outcome we require?" |
+| "Which platform should we use?" | "Which provider—SaaS, custom, or hybrid—best guarantees our target KPI?" |
+
+This mindset applies to every section that follows. When you read about capability groupings or implementation layers, always ask: *"What measurable business result must this provider deliver?"*
+
 ## Table of contents
 {: .no_toc .text-delta }
 
@@ -43,11 +55,14 @@ This distinction matters. You can build a copilot experience without using a Mic
 
 Start by naming **who benefits and how**. This keeps early conversations grounded in outcomes before you debate platforms.
 
-| Bucket | What It Is | Key Distinction |
-| :--- | :--- | :--- |
-| **Copilot for Everyone** | AI as personal assistant | Helps people do *their* work and life tasks. |
-| **AI as Product/Capability** | AI is the value delivered to end users | Standalone agents, embedded features, or LLM‑powered integrations where users consume AI outcomes. |
-| **Agentic Coding** | Autonomous technical builder | AI builds software or systems; the output may or may not contain AI features. |
+| Bucket | What It Is | Key Distinction | Outcome Anchor |
+| :--- | :--- | :--- | :--- |
+| **Copilot for Everyone** | AI as personal assistant | Helps people do *their* work and life tasks. | *Measurable productivity gains (e.g., 25% reduction in document creation time)* |
+| **AI as Product/Capability** | AI is the value delivered to end users | Standalone agents, embedded features, or LLM-powered integrations where users consume AI outcomes. | *Customer-facing KPIs (e.g., 40% first-contact resolution rate)* |
+| **Agentic Coding** | Autonomous technical builder | AI builds software or systems; output may or may not contain AI. | *Developer velocity (e.g., 30% reduction in refactoring cycle time)* |
+
+> [!IMPORTANT]
+> **Outcome Anchoring:** Each bucket should have a defined success metric before technology selection begins. If you cannot articulate a measurable outcome for your bucket, return to stakeholder alignment before proceeding.
 
 ### The "AI Podcast" Problem
 Why do we need these buckets? Imagine searching for "AI" in a podcast app. The results are a chaotic flood because they mix three different intents:
@@ -66,6 +81,14 @@ Not every AI problem needs an agent. Microsoft’s AI agent guidance explicitly 
 
 * **Structured and predictable tasks:** Use deterministic code or non‑generative AI when the workflow is rule‑based and predictable.
 * **Static knowledge retrieval:** Use classic RAG for single‑turn question answering or summarization from a fixed index. If there’s no tool execution or multi‑step reasoning, an agent is overkill.
+
+### The Outcome Checkpoint
+
+Beyond technical fit, apply the Provider Model's decision filter:
+
+> **"Does deploying an agent materially improve our ability to achieve the defined business outcome—or are we adding complexity without value?"**
+
+If the answer is unclear, you likely need to return to outcome definition. A provider (agent or otherwise) should only be adopted when there's a clear causal link between its capabilities and a measurable result.
 
 See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).
 
