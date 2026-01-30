@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Microsoft AI Technologies
-nav_order: 8
+nav_order: 7
 description: "Complete reference for Microsoft's AI technology portfolio"
 ---
 
