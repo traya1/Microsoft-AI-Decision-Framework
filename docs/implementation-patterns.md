@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Implementation Patterns
-nav_order: 7
+nav_order: 6
 description: "Common patterns and best practices for implementing Microsoft AI solutions"
 ---
 
@@ -84,7 +84,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 - Full control over orchestration, latency budgets, and data residency; ideal for **high/very high complexity** use cases in the Evaluation Criteria.
 - Reuses existing Azure engineering investments (policy, monitoring, private endpoints).
-- Flexible channel reach—web, mobile, Microsoft 365, or bespoke user interfaces—using the Agents SDK as a distribution path.[^agentsdk-overview]
+- Flexible channel reach - web, mobile, Microsoft 365, or bespoke user interfaces - using the Agents SDK as a distribution path.[^agentsdk-overview]
 
 **Trade-offs:**
 

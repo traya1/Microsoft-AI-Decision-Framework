@@ -37,11 +37,11 @@ The documentation follows a **progressive learning flow** designed to build know
 2. **docs/capability-model.md** (nav_order: 2) - **Foundation** - Five capability groupings
 3. **docs/decision-framework.md** (nav_order: 3) - **Methodology** - Storybook flow & 9 questions
 4. **docs/scenarios.md** (nav_order: 4) - **Context** - Real-world use cases
-5. **docs/visual-framework.md** (nav_order: 5) - **Application** - 8 Mermaid decision tree diagrams
-6. **docs/evaluation-criteria.md** (nav_order: 6) - **Assessment** - Complexity, skills, budget, governance
-7. **docs/implementation-patterns.md** (nav_order: 7) - **Execution** - Architecture patterns
-8. **docs/technologies.md** (nav_order: 8) - **Deep Dive** - Technical specifications
-9. **docs/feature-comparison.md** (nav_order: 9) - **Mastery** - Side-by-side matrices
+5. **docs/evaluation-criteria.md** (nav_order: 5) - **Assessment** - Complexity, skills, budget, governance
+6. **docs/implementation-patterns.md** (nav_order: 6) - **Execution** - Architecture patterns
+7. **docs/technologies.md** (nav_order: 7) - **Deep Dive** - Technical specifications
+8. **docs/feature-comparison.md** (nav_order: 8) - **Mastery** - Side-by-side matrices
+9. **docs/visual-framework.md** (nav_order: 9) - **Application** - 8 Mermaid decision tree diagrams
 10. **docs/quick-reference.md** (nav_order: 10) - **Reference** - Fast lookup tables
 11. **docs/resources.md** (nav_order: 11) - **Reference** - External links
 12. **docs/glossary.md** (nav_order: 12) - **Reference** - Terminology
@@ -49,10 +49,10 @@ The documentation follows a **progressive learning flow** designed to build know
 ### Learning Flow Rationale
 
 **Why this order matters:**
-- **Quick Reference at position 10** (not 5): Prevents "cheating" - users must learn framework before accessing cheat sheet
+- **Quick Reference at position 10**: Prevents "cheating" - users must learn framework before accessing cheat sheet
 - **Scenarios at position 4** (not 9): Provides early context to ground abstract concepts
-- **Visual Framework at position 5** (not 10): Enables practical application right after theory
-- **Technologies at position 8** (not 2): Delays deep technical details until after framework understanding
+- **Visual Framework at position 9**: Reinforces methodology after content mastery, preventing it from becoming a shortcut
+- **Technologies at position 7** (not 2): Delays deep technical details until after framework understanding
 
 **Navigation links** at the bottom of each document guide users through this optimal progression.
 

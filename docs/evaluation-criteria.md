@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Evaluation Criteria
-nav_order: 6
+nav_order: 5
 description: "Framework for evaluating complexity, skills, budget, and governance"
 ---
 
@@ -57,25 +57,26 @@ Use this page to turn abstract requirements into defensible engineering decision
 | **Pro Developers** | **Lifecycle.** Focus on CI/CD, unit testing, and version control. | **M365 Agents SDK, Foundry, Foundry Agent Service, Agent Framework**. Code-first approaches that fit into existing developer skills. |
 | **Data Scientists** | **Precision.** Technical experts focused on data, grounding, and model behavior (not necessarily app dev). | **Foundry Agent Service or Copilot Studio.** Allows technical non-developers to deploy custom models as agents without managing full-stack infrastructure or writing application code. |
 
-> [!TIP]
+{: .tip } 
 > **The Convergence Principle:** Do not treat "Pro Code" and "Low Code" as binary. A Principal Architect often uses **Copilot Studio** to handle authentication and UI state, while delegating complex reasoning to a **Foundry** Azure Function.
 
 ---
 
-## 3. Budget Assessment (The Economic Model)
+## 3. Budget Assessment
 
 Architects must speak the language of finance. You need to capture Total Cost of Ownership (TCO)—licensing, consumption, and the engineering hours required to build it.
 
 **Question:** Is your budget model based on **Capital Expenditure** (Pre-paid seats) or **Operating Expenditure** (Consumption)?
 
-| Budget Band | Cost Model | Rough Estimate | Best Fit For... |
-| :--- | :--- | :--- | :--- |
-| **Included** | **Entitlement** | $0 (Included) | **M365 Copilot Chat.** If users have licenses, this is the highest ROI baseline. Zero incremental cost. |
-| **Pilot** | **Per-User** | < $500/mo | **M365 Copilot Pilots.** Extending M365 Copilot with Graph Connectors involves no Azure infra spend, just maker time. |
-| **Production** | **Predictable SaaS** | $2k - $10k/mo | **Copilot Studio.** Best for internal tools where you need predictable monthly billing (via Capacity Packs) rather than variable cloud bills.[^copilot-cost] |
-| **Scale** | **Consumption** | $10k+/mo | **Microsoft Foundry / Agent Service.** Best for high-volume apps. You pay for the tokens you use. Requires managing quotas and Azure budgets.[^foundry-cost] |
+| Economic Model | Typical Entry Cost | Best Fit For... |
+| :--- | :--- | :--- |
+| **Entitlement (Sunk Cost)** | $0 / Included | **M365 Copilot Chat.** If users are already licensed, maximizing usage here is the highest ROI baseline. Zero incremental cost. |
+| **Per-User Licensing** | < $500/mo (Starts at $30/user) | **M365 Copilot.** Best for equipping knowledge workers. Costs scale linearly with headcount ($30 -> $60 -> $90). Predictable OpEx. |
+| **Capacity Packs** | $200 - $10k/mo | **Copilot Studio.** Best for internal tools. You buy "blocks" of messages (e.g., 25k messages/month). Predictable billing that doesn't spike if one user goes rogue.[^copilot-cost] |
+| **Metered Consumption** | $0 start -> Scale to $10k+ | **Microsoft Foundry / Agent Service.** Best for B2C apps or high-volume automation. You pay per token/hour. Low barrier to entry, but requires strict **Quota Management** to prevent cost overruns.[^foundry-cost] |
 
-> **Warning:** Consumption models require **Quota Management**. An ungoverned autonomous agent can burn through a monthly token budget in hours if it enters a loop. Always implement spending caps in Azure Cost Management.
+{: .warning }
+> Consumption models require **Quota Management**. An ungoverned autonomous agent can burn through a monthly token budget in hours if it enters a loop. Always implement spending caps in Azure Cost Management.
 
 ---
 

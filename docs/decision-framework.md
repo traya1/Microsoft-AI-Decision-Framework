@@ -12,7 +12,8 @@ description: "Three-phase decision methodology for selecting Microsoft AI techno
 
 Use this document as your intake playbook. It keeps the decision anchored in business outcomes and user experience before you select technologies. It integrates Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning), [CAF AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/), [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/), [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/), and the [Responsible AI Standard v2](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf). It also references the [Copilot Extensibility Planning Guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/planning-guide) and [Microsoft 365 Copilot adoption guidance](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources) for organizational readiness.
 
-> [!NOTE] **See [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) for workflow diagrams** that illustrate how to apply this framework as an intake process.
+{: .note }
+> **See [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) for workflow diagrams** that illustrate how to apply this framework as an intake process.
 
 ## The Intake Filter
 
@@ -76,7 +77,7 @@ This storybook view complements the three phases below without replacing them.
 
 ## Phase 1: Business Impact Assessment (BXT Framework)
 
-Microsoft's official [Business-Experience-Technology (BXT) framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) requires every AI initiative to prove **Business viability**, **Experience desirability**, and **Technology feasibility** before you fund build work. Although the source is written for ISVs, the scorecard works as a general intake rubric for enterprise teams. Use this phase to quantify value, adoption, and delivery readiness up front—if any dimension falls short, pause or reshape the scenario before moving to technology choices.
+Microsoft's official [Business-Experience-Technology (BXT) framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) requires every AI initiative to prove **Business viability**, **Experience desirability**, and **Technology feasibility** before you fund build work. Although the source is written for ISVs, the scorecard works as a general intake rubric for enterprise teams. Use this phase to quantify value, adoption, and delivery readiness up front - if any dimension falls short, pause or reshape the scenario before moving to technology choices.
 
 ### 1. Viability (Business)
 
@@ -130,7 +131,8 @@ See [Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev
 
 Apply these questions **sequentially** after passing the BXT assessment. Each question creates **technology groupings** rather than jumping to specific recommendations. The groupings feed into Phase 3 for final selection.
 
-> [!NOTE] **Important:** These questions create buckets/categories. Final technology selection happens in **Phase 3** based on scenario-specific criteria (time-to-market, complexity, budget, etc.).
+{: .note }
+> **Important:** These questions create buckets/categories. Final technology selection happens in **Phase 3** based on scenario-specific criteria (time-to-market, complexity, budget, etc.).
 
 Use these gates to stay simple first. Start with a SaaS agent when it meets the requirement; step into low-code or pro-code only when the need is explicit. Frame every answer as a balance of speed, control, and shared responsibility (SaaS → PaaS → IaaS), and prefer interoperable standards (e.g., MCP) to reduce rework. Align this phase with the Cloud Adoption Framework AI strategy and AI agent adoption guidance to keep your governance, data strategy, and interoperability assumptions consistent across teams.[^aiagentadoption]
 
@@ -145,7 +147,7 @@ Before you choose approaches, confirm whether the problem truly requires an agen
 - **Structured, predictable work** → deterministic code or non‑generative AI
 - **Static knowledge retrieval** → classic RAG without tool execution or multi‑step reasoning
 
-Agents introduce nondeterminism, latency, and cost—use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).[^whennotagents]
+Agents introduce nondeterminism, latency, and cost - use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).[^whennotagents]
 
 ---
 
@@ -173,7 +175,8 @@ Identify the primary place people will engage with the agent. Start with the fre
 - **Custom or multi-channel** (web, mobile, SMS, email) -> Use M365 Agents SDK, Microsoft Foundry, or Logic Apps to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web/mobile experiences.[^agui-overview]
 - **API/headless** workloads -> Design for services that call the agent as a capability rather than a UI.
 
-> [!TIP] Use the groupings from this question with the capability grouping mappings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
+{: .tip }
+> Use the groupings from this question with the capability grouping mappings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
 
 ---
 
@@ -191,7 +194,8 @@ Instead of a binary choice (Low-Code vs. Pro-Code), map your need to the **Spect
 *   **Orchestration Layer:** Use Copilot Studio when you need custom logic but want managed infrastructure.
 *   **Foundation Layer:** Use Foundry or Agent Framework only when you need custom model tuning, private networking, or complex non-standard behaviors.
 
-> [!TIP] For side-by-side capabilities, see the development approach matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) and [Technologies]({{ '/docs/technologies' | relative_url }}).
+{: .tip }
+> For side-by-side capabilities, see the development approach matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) and [Technologies]({{ '/docs/technologies' | relative_url }}).
 
 Default to SaaS (built-in Copilot / Copilot Studio) when it meets the need; reach for PaaS (Foundry) when you need extensibility; use IaaS only when full-stack control is necessary. Favor MCP-friendly choices to keep integrations portable.
 
@@ -207,7 +211,8 @@ Separate how you ground answers from how you persist history or analytics.
 - **Memory** - Decide if conversations should persist (Copilot Studio Dataverse variables, Foundry Agent Service thread stores in Cosmos DB, custom implementations).
 - **Analytics** - Plan transcript retention, telemetry, and review processes before launch. Use **Translytical Task Flows** in Fabric to trigger actions directly from analytical reports.
 
-> [!TIP] See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#memory-analytics--conversation-history' | relative_url }}) for scoring considerations.
+{: .tip }
+> See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#memory-analytics--conversation-history' | relative_url }}) for scoring considerations.
 
 ---
 
@@ -222,7 +227,7 @@ Use **"The Coin"** mental model (from the [Capability Model]({{ '/docs/capabilit
 *   **Side B (The Force):** Invisible agents that monitor systems/triggers (e.g., Logic Apps, Foundry Agent Service). Optimized for reliability and duration.
 
 **The Advanced Scenario: Convergence**
-The strongest architectures connect both sides. An **Invisible Agent** (Side B) might monitor a database for days. When it finds an anomaly, it doesn't just log it—it wakes up an **Interactive Agent** (Side A) to ping the human user with context.
+The strongest architectures connect both sides. An **Invisible Agent** (Side B) might monitor a database for days. When it finds an anomaly, it doesn't just log it - it wakes up an **Interactive Agent** (Side A) to ping the human user with context.
 *   *Decision:* If you need both behaviors, do not choose between them. Use **Copilot Studio** as the "front office" (User Interaction) and **Foundry/Logic Apps** as the "back office" (Deep Work), connected via API or Agent protocols.
 
 **Orchestration Levels:**
@@ -230,7 +235,8 @@ The strongest architectures connect both sides. An **Invisible Agent** (Side B) 
 *   **Multi-Agent (The Orchestra):** A central "brain" directs specific workers. Good for complex tasks within one boundary. (Hub-and-Spoke).
 *   **Connected Agents (The Mesh):** Independent agents across different organizations or tools discover and message each other. Good for enterprise-wide collaboration without a central bottleneck. (Agent2Agent).
 
-> [!NOTE] The orchestration comparison tables in [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) highlight the trade-offs.
+{: .note }
+> The orchestration comparison tables in [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) highlight the trade-offs.
 
 ---
 
@@ -245,7 +251,8 @@ Answer "Where does my data go, and who can act on it?" before choosing a platfor
 - **Azure landing zone** - Microsoft Foundry and Foundry Agent Service adopt your subscription's network, identity, and policy controls, with private networking and customer-managed keys available by design.
 - **Hybrid approaches** - Mix declarative and custom agents, or route everything through Azure API Management for centralized policy enforcement.
 
-> [!NOTE] Detailed matrices for network isolation, identity, and governance live in [Technologies]({{ '/docs/technologies#network-isolation-decision-matrix' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).
+{: .note }
+> Detailed matrices for network isolation, identity, and governance live in [Technologies]({{ '/docs/technologies#network-isolation-decision-matrix' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).
 
 ---
 
@@ -253,14 +260,15 @@ Answer "Where does my data go, and who can act on it?" before choosing a platfor
 
 {: .no_toc }
 
-Model the usage pattern and budget envelope early so you can select the right consumption model—remember that Microsoft 365 Copilot Chat is free (included), while Microsoft 365 Copilot remains a premium add-on.
+Model the usage pattern and budget envelope early so you can select the right consumption model - remember that Microsoft 365 Copilot Chat is free (included), while Microsoft 365 Copilot remains a premium add-on.
 
 - **Predictable spend** - Free (included) Copilot Chat for baseline pilots, Microsoft 365 Copilot per-user licensing when you need Graph grounding and in-app copilots, or Copilot Studio prepaid capacity packs for governed makers.
 - **Variable spend with guardrails** - Microsoft Foundry/Foundry Agent Service pay-per-token, Copilot Studio PAYG metering, with rate limits and budget alerts to control spikes.
 - **Custom throttling** - M365 Agents SDK or Agent Framework solutions where you own auto-scaling and rate limiting.
 - **Zero marginal cost (Local)** - Windows AI Foundry / Edge AI (Phi-4-mini) for high-frequency, privacy-sensitive tasks where you trade cloud reasoning power for zero inference cost.
 
-> [!NOTE] See [Evaluation Criteria]({{ '/docs/evaluation-criteria#scale--performance' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
+{: .note }
+> See [Evaluation Criteria]({{ '/docs/evaluation-criteria#scale--performance' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
 
 ---
 
@@ -274,7 +282,8 @@ Clarify action safety expectations and determine whether humans must remain in t
 - **Configurable execution** - Copilot Studio can call flows or APIs, so design approval steps and audit coverage explicitly.[^agentflows][^humanreview]
 - **Autonomous execution** - Microsoft Foundry/Foundry Agent Service (tool calling, OpenTelemetry tracing) and M365 Agents SDK (custom guardrails) enable full automation, but only when you provide your own safety framework.[^aifoundrytrace][^agentssdk]
 
-> [!TIP] Use the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }}) for guardrail recipes and [Evaluation Criteria]({{ '/docs/evaluation-criteria#action-safety--content-safety' | relative_url }}) to score risk.
+{: .tip }
+> Use the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }}) for guardrail recipes and [Evaluation Criteria]({{ '/docs/evaluation-criteria#action-safety--content-safety' | relative_url }}) to score risk.
 
 ---
 
@@ -289,7 +298,8 @@ Select a platform your organization can build and sustain.
 - **AI/ML engineers** - Microsoft Foundry and Azure Machine Learning for custom models and evaluations.[^aiarchitecture]
 - **Integration architects** - Logic Apps, API Management, Power Automate for enterprise workflows and connector governance.[^logicappsoverview]
 
-> [!TIP] The skills matrix in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}) keeps the decision evidence-based.
+{: .tip }
+> The skills matrix in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}) keeps the decision evidence-based.
 
 ---
 
@@ -303,7 +313,8 @@ Determine whether the agent is purely reactive or must trigger events on its own
 - **Proactive capable** - Copilot Studio custom engine agents (Power Automate triggers), Azure Logic Apps, Microsoft Foundry/Foundry Agent Service integrations, and M365 Agents SDK listeners can respond to schedules, webhooks, or system alerts.[^logicappstrigger][^agentservicega]
 Declarative agents are reactive by design; proactive workflows require custom engine orchestration or event-driven services.
 
-> [!TIP] Use the automation sections in [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-4-multi-channel-custom-engine-agent-with-m365-agents-sdk' | relative_url }}) to blueprint event-driven designs.
+{: .tip }
+> Use the automation sections in [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-4-multi-channel-custom-engine-agent-with-m365-agents-sdk' | relative_url }}) to blueprint event-driven designs.
 
 ---
 
@@ -312,7 +323,7 @@ Declarative agents are reactive by design; proactive workflows require custom en
 These principles keep the framework durable as products rename or shift capabilities.
 
 - **Standardize first:** Favor open or widely adopted extensibility standards (today that means MCP) to avoid reimplementing the same integrations.
-- **Cloud-to-edge continuity:** Design so workloads can move between cloud, edge, and local runtime based on latency, data gravity, or cost—not vendor defaults.
+- **Cloud-to-edge continuity:** Design so workloads can move between cloud, edge, and local runtime based on latency, data gravity, or cost - not vendor defaults.
 - **Composability over monoliths:** Build small, specialized agents that can delegate or coordinate (A2A/connected agents) instead of a single brittle mega-agent.
 - **Integrated security by design:** Pick platforms with identity, network boundary, content safety, and auditability built in-do not bolt them on later.
 - **Unify the data estate:** Keep operational, analytical, and search data coherent to simplify grounding, evaluations, and governance.
@@ -354,7 +365,8 @@ These principles keep the framework durable as products rename or shift capabili
 
 **Purpose:** Given the technology groupings from Phase 2, apply scenario-specific criteria to select the optimal tool for your specific requirements.
 
-> [!NOTE] **This phase answers: "Given my groupings, which specific technology should I choose?"**
+{: .note }
+> **This phase answers: "Given my groupings, which specific technology should I choose?"**
 
 **Apply these criteria in order:**
 
@@ -383,7 +395,8 @@ Think in experiment steps: start with the fastest viable option (often SaaS or m
 - M365 Agents SDK + Agent Framework (complex orchestration)
 - Foundry Agent Service (managed PaaS for enterprise-scale)
 
-> [!NOTE] **Cross-reference:** [Scenarios]({{ '/docs/scenarios' | relative_url }})
+{: .note }
+> **Cross-reference:** [Scenarios]({{ '/docs/scenarios' | relative_url }})
 
 ---
 
@@ -412,7 +425,8 @@ Decide how much you want to own and what you're willing to trade: SaaS for speed
 
 Prefer platforms and connectors that support open/interoperable patterns (e.g., MCP) to reduce switching costs as products evolve.
 
-> [!NOTE] **Cross-reference:** [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) - Deployment row
+{: .note }
+> **Cross-reference:** [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) - Deployment row
 
 ---
 
@@ -438,7 +452,8 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 - M365 Agents SDK + Agent Framework (checkpointing, workflow orchestration)
 - Custom solutions with Agent Framework
 
-> [!NOTE] **Cross-reference:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Complexity table
+{: .note }
+> **Cross-reference:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Complexity table
 
 ---
 
@@ -466,7 +481,8 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 - Foundry Agent Service (compute + storage)
 - Azure Logic Apps (execution-based)
 
-> [!NOTE] **Cross-reference:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Budget Considerations
+{: .note }
+> **Cross-reference:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Budget Considerations
 
 ---
 
@@ -492,7 +508,8 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 - **M365 Agents SDK** (10+ channels: Web, Mobile, SMS, WhatsApp, Teams, M365 Copilot)
 - **Copilot Studio** (M365 + custom channels)
 
-> [!NOTE] **Cross-reference:** [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) - Pattern 4: Multi-Channel Custom Engine Agent
+{: .note }
+> **Cross-reference:** [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) - Pattern 4: Multi-Channel Custom Engine Agent
 
 ---
 
@@ -517,7 +534,8 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 - **Copilot Studio Agent Flows** (native flows in Studio)
 - **Power Automate Cloud Flows** (1,000+ connectors, long-running)
 
-> [!NOTE] **Cross-reference:** [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) - Workflow Orchestration Platform Comparison
+{: .note }
+> **Cross-reference:** [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) - Workflow Orchestration Platform Comparison
 
 ---
 
