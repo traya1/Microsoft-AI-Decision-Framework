@@ -299,11 +299,83 @@ a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
 /* Callouts */
 blockquote {
 	background: rgba(15, 23, 42, 0.6);
-	border-left: 4px solid var(--secondary);
+	border-left: 4px solid var(--border);
 	border-radius: 10px;
 	padding: 0.9rem 1rem;
 	color: var(--text);
 	box-shadow: var(--shadow-soft);
+	margin: 1.5rem 0;
+}
+
+/* Admonition Styles (Note, Tip, Warning, Important) */
+blockquote.note,
+blockquote.tip,
+blockquote.warning,
+blockquote.important {
+	position: relative;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	padding: 1rem 1.25rem;
+	border-radius: 8px;
+	background: var(--bg-panel);
+	color: var(--text);
+	box-shadow: var(--shadow-soft);
+}
+
+blockquote.note {
+	border-left: 4px solid var(--primary);
+	background: rgba(59, 130, 246, 0.08); /* Blue tint */
+}
+blockquote.note > p:first-child:before {
+	content: "NOTE";
+	display: block;
+	font-weight: 700;
+	color: var(--primary);
+	font-size: 0.75rem;
+	margin-bottom: 0.25rem;
+	letter-spacing: 0.05em;
+}
+
+blockquote.tip {
+	border-left: 4px solid var(--success);
+	background: rgba(16, 185, 129, 0.08); /* Green tint */
+}
+blockquote.tip > p:first-child:before {
+	content: "TIP";
+	display: block;
+	font-weight: 700;
+	color: var(--success);
+	font-size: 0.75rem;
+	margin-bottom: 0.25rem;
+	letter-spacing: 0.05em;
+}
+
+blockquote.warning {
+	border-left: 4px solid var(--secondary);
+	background: rgba(245, 158, 11, 0.08); /* Amber tint */
+}
+blockquote.warning > p:first-child:before {
+	content: "WARNING";
+	display: block;
+	font-weight: 700;
+	color: var(--secondary);
+	font-size: 0.75rem;
+	margin-bottom: 0.25rem;
+	letter-spacing: 0.05em;
+}
+
+blockquote.important {
+	border-left: 4px solid var(--danger);
+	background: rgba(239, 68, 68, 0.08); /* Red tint */
+}
+blockquote.important > p:first-child:before {
+	content: "IMPORTANT";
+	display: block;
+	font-weight: 700;
+	color: var(--danger);
+	font-size: 0.75rem;
+	margin-bottom: 0.25rem;
+	letter-spacing: 0.05em;
 }
 
 /* Tables */

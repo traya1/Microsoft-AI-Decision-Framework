@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Visual Framework
-nav_order: 5
+nav_order: 9
 description: "Decision tree diagrams with Mermaid visualizations"
 ---
 

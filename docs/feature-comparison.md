@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Feature Comparison
-nav_order: 9
+nav_order: 8
 description: Comprehensive side-by-side technology comparisons
 ---
 
