@@ -21,7 +21,9 @@ Master the art of selecting the right Microsoft AI technology for your business 
 
 Microsoft's AI portfolio is broad and moving fast—**M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, SDKs, and more**—and choosing the right starting point matters. When the solution and requirements don’t align, the consequences are real: wasted budget, security exposure, stalled pilots, or compliance risk.
 
-Decisions get harder in the messy middle: data boundaries, orchestration models, action safety, channel reach, governance, and operating models rarely fit a one-page decision tree. Static checklists miss the enterprise edge cases that drive success or failure.
+Decisions get harder in the messy middle: data boundaries, orchestration models, action safety, channel reach, governance, and operating models rarely fit a one-page decision tree. Static checklists miss the enterprise edge cases that drive success or failure. Most importantly, these checklists often trap teams in "feature-driven" conversations—focusing on what a tool has rather than what it achieves.
+
+To solve this, this framework is augmented by the AI Capability Provider model. This mental model shifts the perspective from viewing AI as a collection of features to viewing it as a provider of specific business outcomes. By grounding every architectural decision in the intended outcome, we move away from "What can this tool do?" and toward "What business result does this provider guarantee?".
 
 **This guide exists to prevent false starts.** It gives you a repeatable way of thinking (BXT + capability model + evaluation criteria) so you can select the right tool for your use case, defend the tradeoffs, and adapt as Microsoft ships new capabilities.
 
@@ -45,10 +47,12 @@ By following this framework, you'll gain:
 
 This framework is written for readers who can reason across business, experience, and technology concerns and want a reusable evaluation pattern rather than a one-page answer. Expect to synthesize enterprise constraints, justify architecture choices, and extend the framework as Microsoft ships new capabilities.
 
-- **Technical decision makers & strategists** - AI program sponsors, product owners, security/compliance leads, and other executives accountable for cross-functional alignment and governance.
-- **Architects (AI, application, integration)** - AI solution architects, application/platform architects, and integration leads who design landing zones, data boundaries, and orchestration models.
-- **Pro-code engineering teams** - Software engineers, data engineers, ML engineers, and agent developers responsible for building, instrumenting, and operating custom copilots or services.
-- **Makers & fusion teams** - Product managers, subject-matter experts, Power Platform makers, IT admins, and frontline innovators who partner with engineering to deliver governed AI outcomes.
+In other words, users of this framework are expected to act as "Outcome Orchestrators," using the AI Capability Provider model to ensure that technical choices are always anchored in measurable business value.
+
+- **Technical decision makers & strategists** - AI program sponsors, product owners, security/compliance leads, and other executives accountable for cross-functional alignment and governance. They use the framework to identify which AI Capability Providers (SaaS vs. Custom) align with strategic goals and drive long-term ROI.
+- **Architects (AI, application, integration)** - AI solution architects, application/platform architects, and integration leads who design landing zones, data boundaries, and orchestration models. They evaluate providers based on their ability to deliver outcomes while maintaining security, scalability, and technical integrity.
+- **Pro-code engineering teams** - Software engineers, data engineers, ML engineers, and agent developers responsible for building, instrumenting, and operating custom copilots or services. They focus on "Build" providers, ensuring the underlying infrastructure is optimized to support the specific business outcomes identified in the BXT process.
+- **Makers & fusion teams** - Product managers, subject-matter experts, Power Platform makers, IT admins, and frontline innovators who partner with engineering. They leverage "Consume" and "Extend" providers to deliver governed AI outcomes with speed and efficiency.
 
 If you match these personas, this framework will help you design your own decision flows, facilitate architecture reviews, and explain rationale to stakeholders.
 
@@ -215,13 +219,13 @@ For experienced users who want a fast starting point:
 ## Framework Principles
 
 This guide is built on evidence-based research and systematic decision-making:
-
+I
 1. **Source-First Research** - All content backed by official Microsoft documentation
-2. **Framework-Driven** - BXT methodology + 9 critical questions + scenario criteria, aligned with the CAF AI agent adoption path (plan, govern & secure, build, operate)
-3. **Pattern-Oriented** - Proven implementation approaches from real deployments
-4. **Governance-Aware** - Maintain agent inventory and lifecycle via Agent Registry/Agent 365 where applicable
-5. **Progressive Learning** - Foundation -> Context -> Application -> Mastery
-6. **Start Simple, Scale Smart** - Choose the simplest technology that meets requirements
+1. **Framework-Driven (AI Capability Provider)** - An outcome-centric approach to the BXT methodology. This grounds the 9 critical questions and CAF adoption path in business results rather than feature-based technical selection.
+1. **Pattern-Oriented** - Proven implementation approaches from real deployments
+1. **Governance-Aware** - Maintain agent inventory and lifecycle via Agent Registry/Agent 365 where applicable
+1. **Progressive Learning** - Foundation -> Context -> Application -> Mastery
+1. **Start Simple, Scale Smart** - Choose the simplest technology that meets requirements
 
 ---
 
