@@ -14,23 +14,33 @@ Use this document as your intake playbook. It keeps the decision anchored in bus
 
 > [!NOTE] **See [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) for workflow diagrams** that illustrate how to apply this framework as an intake process.
 
-## The 3 Questions Before Technology
+## The Intake Filter
 
 {: .no_toc }
 
-1. **What business outcome am I trying to achieve?** If the outcome is unclear, pause and rewrite the problem statement before picking any tool.
-2. **What user experience delivers that outcome?** Decide if people need conversational help, embedded copilots, or headless APIs—and prototype the experience first.
-3. **What is the simplest technology that satisfies it?** Start with built-in Microsoft 365 Copilot or Copilot Studio, and only move to pro-code (Foundry/Agent Framework/SDK) when requirements demand network control, custom orchestration, or specialized hosting.
+**Stop "Shiny Object Syndrome" before it starts.**
+
+Most failed AI projects start with "I want to build an agent." Successful projects start with a problem. Use this filter as a gate: if you cannot answer these three questions, do not proceed to technology selection.
+
+1.  **What business outcome am I trying to achieve?** (The precise ROI or problem solved). If the outcome is unclear, pause and rewrite the problem statement before picking any tool.
+2.  **What user experience delivers that outcome?** (The Human Element). Prototype the interaction first. Does it actually need a chat bot, or just a smarter search bar?
+3.  **Does a tool already exist?** (The Evolution Mentality).
+    *   **Check existing tools first:** Can Microsoft 365 Copilot or a standard SaaS feature solve this with zero coding?
+    *   **Evolve only when necessary:** Start rigid (SaaS). Move to configuration (Low-Code) only if the standard tool fails. Move to construction (Pro-Code) only if the configuration hits a wall. Do not start at "Custom Build" by default.
 
 ## Experience Framing (UX + Autonomy)
 
-Before you select platforms, frame the **experience** using Microsoft’s UX guidance for generative AI. This keeps decisions anchored in user context instead of product labels.[^uxguidance]
+Before you select platforms, frame the **experience** using Microsoft’s UX guidance for generative AI. Use the **"Destination, Companion, Feature"** mental model to define how the user relates to the AI.[^uxguidance]
 
-| UX Focus | When It Fits | Decision Implication |
-|---|---|---|
-| **Immersive** | Deep, whole‑canvas work with a knowledge base | Likely needs a dedicated UI surface |
-| **Assistive** | In‑app help where users already work | Favor existing app surfaces and extensions |
-| **Embedded** | Lightweight, single‑entity interactions | Favor targeted UI entry points and narrow scope |
+*   **The Destination (Immersive):** "I go to the AI to do my work." (e.g., ChatGPT, Copilot UI).
+*   **The Companion (Assistive):** "The AI travels with me while I work." (e.g., Copilot sidebars in Word/Edge).
+*   **The Feature (Embedded):** "The AI fixes one specific thing in my flow." (e.g., a 'Summarize' button on a ticket).
+
+| UX Focus | Mental Model | When It Fits | Decision Implication |
+| :--- | :--- | :--- | :--- |
+| **Immersive** | The Destination | Deep, whole‑canvas work with a knowledge base | Likely needs a dedicated UI surface |
+| **Assistive** | The Companion | In‑app help where users already work | Favor existing app surfaces and extensions |
+| **Embedded** | The Feature | Lightweight, single‑entity interactions | Favor targeted UI entry points and narrow scope |
 
 Start by deciding **UI vs no‑UI**. If the experience is UI‑based, choose **chat‑first** vs **embedded-in-app**. If the experience is headless, define the **trigger model** (event, schedule, or system alert) and the **human‑approval points** up front.
 
@@ -167,15 +177,19 @@ Identify the primary place people will engage with the agent. Start with the fre
 
 ---
 
-### Question 2: Build Style & Control Level
+### Question 2: The Spectrum of Control (Build Style)
 
 {: .no_toc }
 
-Decide how much engineering control you need versus how fast you must ship.
+Instead of a binary choice (Low-Code vs. Pro-Code), map your need to the **Spectrum of Control**. Think of this like **"The Kitchen"**:
 
-- **Low-code / managed** - Copilot Studio Full, AI Builder, Copilot Studio Lite, declarative agents (Copilot-managed orchestration). Makers and developers can deliver in days when declarative orchestration is enough.
-- **Pro-code / customizable** - M365 Agents SDK, Microsoft Foundry, Microsoft Agent Framework, AG-UI protocol (Preview), Teams AI Library. Custom engine agents give full control over orchestration, hosting, and integrations while surfacing agents in any UI channel.[^agui-overview]
-- **Hybrid** - Start in Copilot Studio for speed, then bring in Microsoft Foundry or Agent Framework when custom logic or private hosting is required.
+1.  **Dining Out (SaaS):** Order off the menu. Fast, high quality, zero prep. (Example: **Microsoft 365 Copilot**).
+2.  **Meal Kit (Orchestration/Low-Code):** You get the ingredients and the recipe, but you assemble it. Faster than scratch, but adjustable. (Example: **Copilot Studio**).
+3.  **Scratch Cooking (Foundation/Pro-Code):** You buy raw ingredients and own the kitchen. Infinite possibility, but you do the dishes. (Example: **Microsoft Foundry / Agent SDK**).
+
+*   **SaaS Layer:** Default here. Use declarative agents or built-in Copilot extensibility.
+*   **Orchestration Layer:** Use Copilot Studio when you need custom logic but want managed infrastructure.
+*   **Foundation Layer:** Use Foundry or Agent Framework only when you need custom model tuning, private networking, or complex non-standard behaviors.
 
 > [!TIP] For side-by-side capabilities, see the development approach matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) and [Technologies]({{ '/docs/technologies' | relative_url }}).
 
@@ -197,17 +211,24 @@ Separate how you ground answers from how you persist history or analytics.
 
 ---
 
-### Question 4: Orchestration Complexity
+### Question 4: Orchestration Complexity (The Coin)
 
 {: .no_toc }
 
-Match orchestration tooling to conversation and workflow depth.
+Use **"The Coin"** mental model (from the [Capability Model]({{ '/docs/capability-model' | relative_url }})) to determine if you need a soloist, a team, or a connected ecosystem.
 
-- Prototype as a single agent first; move to multi-agent only when boundaries, teams, or complexity demand it. Keep orchestration choices simple until evidence says otherwise.
-- **Simple Q&A** - Declarative agents, Copilot Studio's generative orchestration, built-in M365 Copilot experiences.
-- **Deterministic workflows** - Copilot Studio Agent Flows, Azure Logic Apps, or Agent Framework workflows when you need checkpoints or human approval steps.
-- **Centralized Multi-Agent** - Foundry Agent Service or Agent Framework (Hub-and-Spoke) when you need a managed runtime to coordinate specialized agents.
-- **Decentralized (Mesh) Multi-Agent** - Copilot Studio Agent2Agent (A2A) when independent agents need to discover and invoke each other without a central orchestrator.
+**The Two Sides:**
+*   **Side A (The Face):** Interactive agents that talk to humans (e.g., Copilot Studio). Optimized for speed and conversation history.
+*   **Side B (The Force):** Invisible agents that monitor systems/triggers (e.g., Logic Apps, Foundry Agent Service). Optimized for reliability and duration.
+
+**The Advanced Scenario: Convergence**
+The strongest architectures connect both sides. An **Invisible Agent** (Side B) might monitor a database for days. When it finds an anomaly, it doesn't just log it—it wakes up an **Interactive Agent** (Side A) to ping the human user with context.
+*   *Decision:* If you need both behaviors, do not choose between them. Use **Copilot Studio** as the "front office" (User Interaction) and **Foundry/Logic Apps** as the "back office" (Deep Work), connected via API or Agent protocols.
+
+**Orchestration Levels:**
+*   **Single Agent (The Soloist):** One agent using tools. Good for simple Q&A. (Declarative Agents).
+*   **Multi-Agent (The Orchestra):** A central "brain" directs specific workers. Good for complex tasks within one boundary. (Hub-and-Spoke).
+*   **Connected Agents (The Mesh):** Independent agents across different organizations or tools discover and message each other. Good for enterprise-wide collaboration without a central bottleneck. (Agent2Agent).
 
 > [!NOTE] The orchestration comparison tables in [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) highlight the trade-offs.
 

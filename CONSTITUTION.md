@@ -10,24 +10,25 @@ This repository is a **comprehensive decision engine** for Microsoft's AI portfo
 
 **To teach a way of thinking.**
 
-We aim to instill a mental framework for evaluating AI problems, rather than just providing a catalog of tools. The goal is to stop customers and architects from picking a technology (e.g., "I want an Agent") before they understand their problem. It forces a structured "Business → Experience → Technology" (BXT) flow to ensure the selected tool actually fits the requirement.
+We aim to instill a mental framework for evaluating AI problems, rather than just providing a catalog of tools. The goal is to stop customers and architects from picking a technology (e.g., "I want an Agent") before they understand their problem. It forces a structured flow—**Outcomes $\rightarrow$ Behaviors $\rightarrow$ Platforms**—to ensure the selected tool actually fits the requirement.
 
 ### The Point of View
 
 * **Methodology over Memorization:** Microsoft ships new AI features weekly. Memorizing the product list is futile. This repo teaches the *logic* of how to choose, which survives product renames.
 * **Problem-First Architecture:** We prioritize understanding the *problem* (use cases, edge cases, constraints) over picking a *solution*. Technology is a means to an end, not the starting point.
 * **Holistic Trade-offs:** Decisions are never just technical. They must weigh budget, timeline, team skills, and governance.
-* **Anti-Hype:** It is intentionally "Level 300-400" (technical/architectural). It rejects marketing fluff in favor of engineering reality (e.g., "Does this actually support VNET injection?" vs. "It's enterprise-ready").
-* **Source-Backed Truth:** If it’s not in official Microsoft documentation sources, it doesn't exist in this framework. Microsoft Learn is primary, but some official docs live elsewhere (VS Code docs on code.visualstudio.com, GitHub Docs on docs.github.com, and Aspire docs on aspire.dev). If a source does not publish a “last updated” date, record an access date instead.
+* **Anti-Hype:** It is intentionally "Level 300-400" (technical/architectural). It rejects marketing fluff in favor of engineering reality.
+* **Source-Backed Truth:** If it’s not in official Microsoft documentation sources, it doesn't exist in this framework. Microsoft Learn is primary.
 
 ### Writing Style & Voice
 
-We write to **change how people think**, not just what they pick.
+We write to **change how people think**, not just what they pick. We act as a **Storyteller** and **Guide**.
 
-* **Thought leadership, not answer keys:** Lead with principles, framing questions, and decision levers.
-* **Instructor-led clarity:** Use narrative guidance to turn “spaghetti” into structured thinking.
-* **Lens-widening:** Help readers expand their perspective before narrowing to a choice.
-* **Anti-marketing tone:** No hype, no product-first pitch; prioritize insight and trade-offs.
+* **The Teaching Triad:** We bridge the gap between abstract concepts and specific products using **universal analogies**.
+    * *Bad:* "Use Copilot Studio for triggers." (Assumes product knowledge).
+    * *Good:* "Think of an Invisible Agent like a thermostat (The Analogy). It waits for a temperature change to trigger an action (The Concept). In Microsoft's stack, Copilot Studio handles these triggers (The Product)."
+* **Narrative Arcs:** Structure documents like a story. There is a protagonist (the builder), an inciting incident (the business problem), and a resolution (the architecture).
+* **Thought Leadership:** Lead with principles and decision levers, not product pitches.
 
 ---
 
@@ -35,63 +36,54 @@ We write to **change how people think**, not just what they pick.
 
 To keep this repository aligned with its mission, we adhere to the following "Constitution":
 
-### Article I: The Source-Backed Principle
-
-#### "If you can't link it, you can't claim it."
-
-* Every capability, feature, and limitation must be validated against official **Microsoft documentation** sources. Microsoft Learn is primary, but for VS Code, GitHub Copilot, or Aspire, use their official documentation sites.
-* Marketing blogs are secondary; engineering docs are primary.
-* **Rule:** Never assume a feature exists because of a product name (e.g., assuming "Fabric Data Agents" are autonomous orchestrators just because they are called "Agents").
+### Article I: The Fact vs. Framework Distinction
+#### "Cite the Specs, Own the Story."
+* **Technical Truths:** Claims about what a product *is*, what it *does*, specific limits, pricing, or availability must be validated against official **Microsoft documentation** sources. If you claim a feature works, you must be able to link to it.
+* **Conceptual Truths:** Thought leadership, analogies, and mental models (e.g., "The Coin," "The Podcast") are the creative engine of this repository. These do not require citations because they are the *lens* we created to teach the material.
+* **Rule:** Never invent a feature to fit a narrative, but fearlessly invent narratives to explain the features.
 
 ### Article II: The Anti-Shoeboxing Mandate
-
 #### "Don't force a square peg into a round hole."
-
 * Do not twist a technology's definition to fit a user's request. If a user asks for a "multi-agent system" in Logic Apps, we must say "Logic Apps is an orchestrator, not an agent framework," rather than pretending it fits.
 * **Rule:** Explicitly state what a technology *cannot* do.
 
 ### Article III: Status Transparency
-
 #### "Preview is not Production."
-
 * We must rigorously distinguish between **General Availability (GA)**, **Public Preview**, and **Experimental**.
-* **Rule:** Every diagram and table must visually flag non-GA features (e.g., `<br/><i>Preview</i>`).
+* **Rule:** Every diagram and table must visually flag non-GA features.
 
 ### Article IV: The Order of Operations
-
-#### "Business before Technology."
-
-* Content must guide users through the **BXT Framework**:
-  1. **Business:** Is this viable? (ROI)
-  2. **Experience:** Is this desirable? (Chat vs. API)
-  3. **Technology:** Is this feasible? (Security/Skills)
-* **Rule:** Don't recommend a "Solution" (Capability Groupings 3–5) without first checking if an **End‑user copilot** (Capability Grouping 1) solves the problem for free.
+#### "Outcomes $\rightarrow$ Behaviors $\rightarrow$ Platforms."
+* Content must guide users through the decision flow:
+    1.  **Outcomes (Buckets):** Who benefits and how?
+    2.  **Behaviors (Framework):** How does the agent act? (Assistive vs. Autonomous, UI vs. No-UI).
+    3.  **Platforms (Groupings):** Which tool supports that behavior?
+* **Rule:** Do not recommend a "Solution" (Capability Groupings 3–5) without first checking if an **End‑user copilot** (Capability Grouping 1) solves the problem for free.
 
 ### Article V: The Navigation Mandate
-
 #### "Teach the map, not just the destination."
-
 * Our goal is to teach users *how* to navigate Microsoft's changing landscape, not just give them a static answer.
-* **Rule:** Always reference official decision trees and frameworks (see `ADDITIONAL_RESEARCH.md`) to ground our guidance in Microsoft's recommended paths.
+* **Rule:** Always reference official decision trees and frameworks to ground our guidance in Microsoft's recommended paths.
 
 ### Article VI: The Immutable Intent of Core Files
-
-#### "Respect the purpose of the document."
-
-Certain files have a specific educational or methodological purpose that must not be diluted by product marketing or inventory lists.
+#### "Balance the Concept, the Analogy, and the Product."
+Certain files have a specific educational purpose.
 
 * **`docs/capability-model.md` (The "What"):**
-  * **Intent:** Defines *abstract capabilities* (e.g., "Consumption," "Extensibility," "Orchestration") independent of specific products.
-  * **Guardrail:** Do not turn this into a product feature list. Products are only examples of capabilities, not the definition.
+    * **Intent:** Defines *capabilities* and *mental models* (e.g., "The Coin," "The 5 Dimensions").
+    * **Guardrail:** Use the **Teaching Triad**. Products are permitted here only as concrete examples of a concept, after an analogy has established understanding. Products illustrate; they do not define.
 * **`docs/decision-framework.md` (The "How"):**
-  * **Intent:** Defines the *methodology* and *mindset* for making decisions (BXT, 9 Questions).
-  * **Guardrail:** Do not clutter this with technology specs. It is about the *process* of choosing, not the choices themselves.
-* **`docs/evaluation-criteria.md` (The "Measure"):**
-  * **Intent:** Defines the *metrics* and *dimensions* for assessment (Complexity, Governance, Skills).
-  * **Guardrail:** Do not fill this with product comparison tables. It defines the *ruler*, not the things being measured.
+    * **Intent:** Defines the *methodology* and *intake process* (BXT, 9 Questions).
+    * **Guardrail:** Do not clutter this with technology specs. It is about the *process* of choosing.
 
 ### Article VII: The Teaching Mandate
+#### "Explain the 'Why' before the 'What'."
+* Content must teach a **way of thinking** through story, principles, and frameworks.
+* **Rule:** If a section reads like a product chooser, rewrite it to explain *how to decide* based on underlying principles (e.g., "Velocity vs. Control") rather than just product names.
 
-* Content must teach a **way of thinking** through story, principles, and frameworks—not just list options.
-* **Rule:** If a section reads like a product chooser, rewrite it to explain *how to decide* instead.
-
+### Article VIII: The Collaborative Mandate
+#### "No Product Supremacy."
+* We reject the narrative that one product is "better" than another (e.g., "Foundry vs. Copilot Studio"). This is a false conflict.
+* **Rule:** Always frame technologies as **roles in a cast**.
+    * *Bad:* "Foundry is better than Copilot Studio because it has code."
+    * *Good:* "Copilot Studio plays the role of the Orchestrator, managing the flow, while Foundry plays the role of the Engine, powering the deep reasoning. They are teammates, not rivals."
